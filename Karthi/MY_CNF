@@ -1,0 +1,30 @@
+[mysqld]
+slow-query-log=1
+long-query-time=1
+slow-query-log-file="/var/log/mysql/slow-query-log"
+default-storage-engine=InnoDB
+innodb_file_per_table=1
+#innodb_force_recovery=1
+max_allowed_packet=268435456
+thread_cache_size = 384
+query_prealloc_size = 65536
+query_alloc_block_size = 131072
+query_cache_size =2048M
+key_buffer_size = 750M
+innodb_buffer_pool_size = 10G
+table_open_cache = 4500
+query_cache_limit=8M
+open_files_limit=50000
+innodb_additional_mem_pool_size = 8M
+innodb_support_xa = 0
+innodb_lock_wait_timeout = 50
+innodb_flush_method=O_DIRECT
+innodb_log_files_in_group = 2
+innodb_log_buffer_size = 8M
+innodb_thread_concurrency = 16
+innodb_file_format = BARRACUDA
+interactive_timeout=300
+wait_timeout=300
+sort_buffer_size=6M
+read_rnd_buffer_size=768k
+

@@ -1,0 +1,895 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head><meta http-equiv="X-UA-Compatible" content="IE=8" /><title>
+	Form 16
+</title><link href="../Includes/JSMeHRIS1.css" rel="stylesheet" type="text/css" /><link href="../Includes/AjaxCombobox.css" rel="stylesheet" type="text/css" /><link href="../Includes/style1.css" rel="stylesheet" type="text/css" /><link href="../Styles/CalendarControl.css" rel="stylesheet" type="text/css" /><link href="../Styles/Style.css" rel="stylesheet" type="text/css" />
+<script  type="text/javascript" language="javascript" src="../Includes/Script.js"></script>
+
+    <script language="javascript" src="../includes/datepicker.js" type ="text/javascript" ></script>
+<script language="javascript" src="../includes/MonthlydatePicker.js" type ="text/javascript" ></script>
+ <script type="text/javascript" src="../scripts/wysiwyg.js"></script>        	
+	    <script type="text/javascript" src="../scripts/wysiwyg-settings.js"></script>
+
+       <link href="../css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="../js/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.ui.core.js" type="text/javascript"></script>
+    <script src="../js/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="../js/jquery.ui.button.js" type="text/javascript"></script>
+    <script src="../js/jquery.ui.position.js" type="text/javascript"></script>
+    <script src="../js/jquery.ui.autocomplete.js" type="text/javascript"></script>
+    <script src="../js/jquery.ui.combobox.js" type="text/javascript"></script>
+   
+    <style type="text/css">
+.mySlides {display:inherit;}
+</style>
+
+
+<script language="JavaScript" type="text/javascript">
+    //Message to display whenever right click on website
+  //  var message = "Sorry, Right Click have been disabled.";
+    function click(e) {
+        if (document.all) {
+            if (event.button == 2 || event.button == 3) {
+              //  alert(message);
+                return false;
+            }
+        }
+        else {
+            if (e.button == 2 || e.button == 3) {
+                e.preventDefault();
+                e.stopPropagation();
+              //  alert(message);
+                return false;
+            }
+        }
+    }
+    if (document.all) {
+        document.onmousedown = click;
+    }
+    else {
+        document.onclick = click;
+    }
+</script>
+
+
+<script type = "text/javascript">
+    window.onload = function () {
+        var scrollY = parseInt('');
+        if (!isNaN(scrollY)) {
+            window.scrollTo(0, scrollY);
+        }
+    };
+    window.onscroll = function () {
+        var scrollY = document.body.scrollTop;
+        if (scrollY == 0) {
+            if (window.pageYOffset) {
+                scrollY = window.pageYOffset;
+            }
+            else {
+                scrollY = (document.body.parentElement) ? document.body.parentElement.scrollTop : 0;
+            }
+        }
+        if (scrollY > 0) {
+            var input = document.getElementById("scrollY");
+            if (input == null) {
+                input = document.createElement("input");
+                input.setAttribute("type", "hidden");
+                input.setAttribute("id", "scrollY");
+                input.setAttribute("name", "scrollY");
+                document.forms[0].appendChild(input);
+            }
+            input.value = scrollY;
+        }
+    };
+</script>
+
+
+
+<style type="text/css">
+	.ctl00_TreeView1_0 { text-decoration:none; }
+	.ctl00_TreeView1_1 { border-style:none; }
+	.ctl00_TreeView1_2 {  }
+	.ctl00_TreeView1_3 {  }
+	.ctl00_TreeView1_4 { text-decoration:underline; }
+	.ctl00_TreeView1_5 { text-decoration:underline; }
+
+</style></head>
+<body>
+    <form name="aspnetForm" method="post" action="UIMyFormSixteenReport.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="ctl00_TreeView1_ExpandState" id="ctl00_TreeView1_ExpandState" value="cnnnnnncnncnncnnnnncnnnnnnnnncncncnnncnnnnn" />
+<input type="hidden" name="ctl00_TreeView1_SelectedNode" id="ctl00_TreeView1_SelectedNode" value="" />
+<input type="hidden" name="ctl00_TreeView1_PopulateLog" id="ctl00_TreeView1_PopulateLog" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTE0OTg2MzA4Nw8WAh4HRW1wQ29kZQUGU00wNzg3FgJmD2QWAgIDD2QWHgIDDxYCHgdWaXNpYmxlaGQCBA8PFgIeBFRleHQFE0xpbnV4IEFkbWluaXN0cmF0b3JkZAIGDw8WAh8CBS5TT0xWRVJNSU5EUyBTT0xVVElPTlMgQU5EIFRFQ0hOT0xPR0lFUyBQVlQgTFREZGQCBw8PFgIfAgUTU09MVkVSTUlORFMtQ0hFTk5BSWRkAgkPDxYCHwIFcSA8aW1nICAgIGJvcmRlcj0nMCcgd2lkdGg9JzIwMCcgaGVpZ2h0PSc4MCcgIGlkPSdJbWcyJyBzcmM9Jy4uL01pc2MvVUlMb2dvSW1hZ2VEZXRhaWxzLmFzcHg/VG9waWM9U3lzdGVtLkJ5dGVbXSc+ZGQCCg8PFgIfAgULMDEgQXByIDIwMTlkZAIMDw8WAh8BZ2RkAg0PDxYCHwFnZGQCDg8PFgIfAWdkZAIRDw8WAh8BZ2RkAhQPDxYCHwFnZGQCFg8PFgIfAgUfV2VsY29tZSA6IEthcnRoaWtleWFuIE11cnVnZXNhbmRkAhoPPCsACQIADxYGHg1OZXZlckV4cGFuZGVkZB4MU2VsZWN0ZWROb2RlZB4JTGFzdEluZGV4AitkCBQrAAoFIzA6MCwwOjEsMDoyLDA6MywwOjQsMDo1LDA6NiwwOjcsMDo4FCsAAhYGHwIFDEFubm91bmNlbWVudB4MU2VsZWN0QWN0aW9uCyouU3lzdGVtLldlYi5VSS5XZWJDb250cm9scy5UcmVlTm9kZVNlbGVjdEFjdGlvbgMeCEV4cGFuZGVkaBQrAAcFFzA6MCwwOjEsMDoyLDA6MywwOjQsMDo1FCsAAhYGHwIFElNlcnZpY2UgQ29tcGxldGlvbh4LTmF2aWdhdGVVcmwFJ34vQW5ub3VuY2VtZW50L1VJU2VydmljZUNvbXBsZXRpb24uYXNweB8HaGQUKwACFgYfAgUTV2VkZGluZyBBbm5pdmVyc2FyeR8IBSZ+L0Fubm91bmNlbWVudC9XZWRkaW5nQW5uaXZlcnNhcnkuYXNweB8HaGQUKwACFgYfAgUQTWVzc2FnZSBGcm9tIENFTx8IBRx+L0Fubm91bmNlbWVudC9DZW9TcGFjZS5hc3B4HwdoZBQrAAIWBh8CBRNUaG91Z2h0IG9mIHRoZSBXZWVrHwgFJH4vQW5ub3VuY2VtZW50L1Rob3VnaHRvZnRoZXdlZWsuYXNweB8HaGQUKwACFgYfAgUETmV3cx8IBSF+L0Fubm91bmNlbWVudC9VSU5ld3NEZXRhaWxzLmFzcHgfB2hkFCsAAhYGHwIFCEJpcnRoZGF5HwgFHH4vQW5ub3VuY2VtZW50L0JpcnRoZGF5LmFzcHgfB2hkFCsAAhYGHwIFFUhSIFBvbGljaWVzIGFuZCBGb3Jtcx8GCysEAx8HaBQrAAMFBzA6MCwwOjEUKwACFgYfAgULSFIgUG9saWNpZXMfCAUnfi9IUiBQb2xpY2llcyBhbmQgRm9ybXMvSFJwb2xpY2llcy5hc3B4HwdoZBQrAAIWBh8CBQhIUiBGb3Jtcx8IBSR+L0hSIFBvbGljaWVzIGFuZCBGb3Jtcy9IUmZvcm1zLmFzcHgfB2hkFCsAAhYGHwIFCEZlZWRiYWNrHwYLKwQDHwdoFCsAAwUHMDowLDA6MRQrAAIWBh8CBQlJdGVtIExvc3QfCAUffi9GZWVkYmFjay9SZXBvcnRMb3N0SXRlbXMuYXNweB8HaGQUKwACFgYfAgUKSXRlbSBGb3VuZB8IBSB+L0ZlZWRiYWNrL1JlcG9ydEl0ZW1zRm91bmQuYXNweB8HaGQUKwACFgYfAgUFTGVhdmUfBgsrBAMfB2gUKwAGBRMwOjAsMDoxLDA6MiwwOjMsMDo0FCsAAhYGHwIFDUxlYXZlIEJhbGFuY2UfCAUmfi9MZWF2ZUFuZEF0dGVuZGFuY2UvTGVhdmVzdW1tYXJ5LmFzcHgfB2hkFCsAAhYGHwIFCE15IExlYXZlHwgFJ34vTGVhdmVBbmRBdHRlbmRhbmNlL1VJTXlMZWF2ZU1lbnUuYXNweB8HaGQUKwACFgYfAgUOTGVhdmUgQXBwcm92YWwfCAUpfi9MZWF2ZUFuZEF0dGVuZGFuY2UvVUlMZWF2ZUFwcHJvdmFsLmFzcHgfB2hkFCsAAhYGHwIFEkxlYXZlIENhbmNlbGxhdGlvbh8IBTF+L0xlYXZlQW5kQXR0ZW5kYW5jZS9VSUxlYXZlQ2FuY2VsbGF0aW9uTWVudS5hc3B4HwdoZBQrAAIWBh8CBRVDYW5jZWxsYXRpb24gQXBwcm92YWwfCAU4fi9MZWF2ZUFuZEF0dGVuZGFuY2UvVUlMZWF2ZUNhbmNlbGF0aW9uQXBwcm92YWxNZW51LmFzcHgfB2hkFCsAAhYGHwIFCkF0dGVuZGFuY2UfBgsrBAMfB2gUKwAKBSMwOjAsMDoxLDA6MiwwOjMsMDo0LDA6NSwwOjYsMDo3LDA6OBQrAAIWBh8CBQ1NeSBBdHRlbmRhbmNlHwgFJH4vQXR0ZW5kYW5jZS9VSU15QXR0ZW5kYW5jZW1lbnUuYXNweB8HaGQUKwACFgYfAgUSQXBwcm92ZSBBdHRlbmRhbmNlHwgFJX4vQXR0ZW5kYW5jZS9VSUFwcHJvdmVBdHRlbmRhbmNlLmFzcHgfB2hkFCsAAhYGHwIFDFdPZmYgV29ya2luZx8IBSN+L0F0dGVuZGFuY2UvVUlXT2ZmV29ya2luZ01lbnUuYXNweB8HaGQUKwACFgYfAgUNV09mZiBBcHByb3ZhbB8IBSR+L0F0dGVuZGFuY2UvVUlXT2ZmQXBwcm92YWxNZW51LmFzcHgfB2hkFCsAAhYGHwIFEVdvZmYgQ2FuY2VsbGF0aW9uHwgFJH4vQXR0ZW5kYW5jZS9VSVdPZmZDYW5jZWxsYXRpb24uYXNweB8HaGQUKwACFgYfAgUPQ29tcE9mZiBCYWxhbmNlHwgFIn4vQXR0ZW5kYW5jZS9VSUNvbXBPZmZCYWxhbmNlLmFzcHgfB2hkFCsAAhYGHwIFB0NvbXBPZmYfCAUffi9BdHRlbmRhbmNlL1VJQ29tcE9mZk1lbnUuYXNweB8HaGQUKwACFgYfAgUQQ29tcE9mZiBBcHByb3ZhbB8IBSd+L0F0dGVuZGFuY2UvVUlDb21wT2ZmQXBwcm92YWxNZW51LmFzcHgfB2hkFCsAAhYGHwIFFENvbXBPZmYgQ2FuY2VsbGF0aW9uHwgFJ34vQXR0ZW5kYW5jZS9VSUNvbXBPZmZDYW5jZWxsYXRpb24uYXNweB8HaGQUKwACFgYfAgUITXkgTG9hbnMfBgsrBAMfB2gUKwACBQMwOjAUKwACFgYfAgUMTG9hbiBEZXRhaWxzHwgFHH4vTXlMb2Fucy9VSUxvYW5EZXRhaWxzLmFzcHgfB2hkFCsAAhYGHwIFF0NvbXBlbnNhdGlvbiAmIEJlbmVmaXRzHwYLKwQDHwdoFCsAAgUDMDowFCsAAhYGHwIFDk15IFNhbGFyeSBTbGlwHwgFGn4vU2FsYXJ5L015U2FsYXJ5U2xpcC5hc3B4HwdoZBQrAAIWBh8CBQtUYXggRGV0YWlscx8GCysEAx8HaBQrAAQFCzA6MCwwOjEsMDoyFCsAAhYGHwIFDU15IFRheCBBZHZpY2UfCAUYfi9URFMvVERTU2VsZWN0WWVhci5hc3B4HwdoZBQrAAIWBh8CBRRTdWJtaXNzaW9uIG9mIFByb29mcx8IBTZ+L0NvbXBlbnNhdGlvbiBhbmQgQmVuZWZpdHMvZnJtU3VibWlzc2lvbk9mUHJvb2ZzLmFzcHgfB2hkFCsAAhYGHwIFCk15IEZvcm0gMTYfCAU2fi9Db21wZW5zYXRpb24gYW5kIEJlbmVmaXRzL1VJTXlGb3JtU2l4dGVlblJlcG9ydC5hc3B4HwdoZBQrAAIWBh8CBQRFeGl0HwYLKwQDHwdoFCsABgUTMDowLDA6MSwwOjIsMDozLDA6NBQrAAIWBh8CBQ1NeSBJbnRpbWF0aW9uHwgFHn4vRXhpdC9VSU15SW50aW1hdGlvbk1lbnUuYXNweB8HaGQUKwACFgYfAgUVSW50aW1hdGlvbiBBY2NlcHRhbmNlHwgFJH4vRXhpdC9VSUludGltYXRpb25BcHByb3ZhbE1lbnUuYXNweB8HaGQUKwACFgYfAgUORXhpdCBDaGVja2xpc3QfCAUpfi9FeGl0L1VJRXhpdENoZWNrbGlzdEFjY2VwdGFuY2VNZW51LmFzcHgfB2hkFCsAAhYGHwIFHE15IEV4aXQgQ2hlY2tsaXN0IEFjY2VwdGFuY2UfCAUffi9FeGl0L1VJRXhpdENoZWNrbGlzdE1lbnUuYXNweB8HaGQUKwACFgYfAgURTXkgRXhpdCBJbnRlcnZpZXcfCAUffi9FeGl0L1VJRXhpdEludGVydmlld01lbnUuYXNweB8HaGRkAhwPZBYCAgUPFgIfAWdkAh0PZBYEAgEPFgIfAWgWAgIDD2QWBAIBDxAPFgYeDURhdGFUZXh0RmllbGQFBmZ5eWVhch4ORGF0YVZhbHVlRmllbGQFBGZ5aWQeC18hRGF0YUJvdW5kZ2QQFQoZLS1TZWxlY3QgRmluYW5jaWFsIFllYXItLQkyMDE5LTIwMjAJMjAxOC0yMDE5CTIwMTctMjAxOAkyMDE2LTIwMTcJMjAxNS0yMDE2CTIwMTQtMjAxNQkyMDEzLTIwMTQJMjAxMi0yMDEzCTIwMTEtMjAxMhUKATADMTk2AzE4NwMxODMDMTc4AzE2NAMxNjECMjkCMjgCMjcUKwMKZ2dnZ2dnZ2dnZxYBAgNkAgMPEA8WAh4HQ2hlY2tlZGhkZGRkAgMPFgIfAWcWGAIHDw9kFgIeB09uY2xpY2sFH2phdmFzY3JpcHQ6Z2V0UHJpbnQoJ2RpdlByaW50JylkAg8PDxYCHwIF4oIBPHRhYmxlIHdpZHRoPTEwMCUgc3R5bGU9J2JvcmRlcjogc29saWQgMXB4ICNlMWU0ZWE7JyAgY2VsbHBhZGRpbmcgPSA0ICBjZWxsc3BhY2luZyA9IDA+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgd2lkdGg9JzYwJScgY2xhc3M9J2xlZnRDZWxscyc+IE5hbWUgYW5kIEFkZHJlc3MgT2YgdGhlIEVtcGxveWVyPC90ZD48dGQgY29sc3Bhbj0nMycgd2lkdGg9JzQwJScgY2xhc3M9J2xlZnRDZWxscyc+TmFtZSBhbmQgRGVzaWduYXRpb24gT2YgdGhlIEVtcGxveWVlPC90ZD48L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHMnPiA8Yj5TT0xWRVJNSU5EUy1DSEVOTkFJPC9iPjxici8+ICAgIENoZW5uYWktNjAzMTAzICAgPC90ZD48dGQgY29sc3Bhbj0nMycgY2xhc3M9J2xlZnRDZWxscyc+IEthcnRoaWtleWFuIE11cnVnZXNhbjxici8+IExpbnV4IEFkbWluaXN0cmF0b3IgPGJyLz4gIEVtcGxveWVlIENvZGU6IFNNMDc4NyAgIDwvdGQ+PC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPScyJyB3aWR0aD0nMzAlJyBjbGFzcz0nbGVmdENlbGxzTm9SaWdodCc+IFBBTiBOTyBPZiB0aGUgRGVkdWN0b3I8L3RkPjx0ZCBjb2xzcGFuPScyJyB3aWR0aD0nMzAlJyBjbGFzcz0nbGVmdENlbGxzTm9SaWdodCc+IFRBTiBOTyBPZiB0aGUgRGVkdWN0b3I8L3RkPjx0ZCBjb2xzcGFuPSczJyB3aWR0aD0nNDAlJyBjbGFzcz0nbGVmdENlbGxzTm9SaWdodCc+IFBBTiBOTyBPZiB0aGUgRW1wbG95ZWU8L3RkPjwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nMicgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+ICAmbmJzcDtBQUlDUzExMzJOPC90ZD4gIDx0ZCBjb2xzcGFuPScyJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gICZuYnNwO0NIRVMyMjE4M0E8L3RkPiAgPHRkIGNvbHNwYW49JzMnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNScgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+IDxiPlBlcmlvZCB3aXRoIHRoZSBFbXBsb3llcjwvYj48L3RkPjx0ZCByb3dzcGFuPScyJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz48Yj4gQXNzZXNzbWVudCBZZWFyPC9iPjwvdGQ+PC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSczJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gRnJvbSA8L3RkPjx0ZCBjb2xzcGFuPScyJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gVG88L3RkPjwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nMycgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+IDA3LzEzLzIwMTc8L3RkPiAgPHRkIGNvbHNwYW49JzInIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPiAwMy8zMS8yMDE4PC90ZD4gIDx0ZCBjb2xzcGFuPScyJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gMjAxOC0yMDE5PC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNycgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+PGI+IFN1bW1hcnkgb2YgQW1vdW50IFBhaWQvQ3JlZGl0ZWQgYW5kIHRheCBEZWR1Y3RlZCBhdCBTb3VyY2UgdGhlb3JlbSBpbiByZXNwZWN0IG9mIHRoZSBlbXBsb3llZSA8L2I+IDwvdGQ+PC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+PGI+IFF1YXJ0ZXJzICA8L2I+PC90ZD48dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPjxiPiBBY2tub3dsZWRnZW1lbnQgTm8gPC9iPiA8L3RkPjx0ZCBjb2xzcGFuPScyJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz48Yj4gUmVjZWlwdCBObyBvZiBPcmlnaW5hbCBRdWFydGVybHkgc3RhdGVtZW50cyBvZiBURFMgIHVuZGVyIFN1YnNlY3Rpb24oMykgb2YgU2VjdGlvbiAyMDAgPC9iPjwvdGQ+PHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz48Yj4gQW1vdW50IFBhaWQvQ3JlZGl0ZWQgPC9iPjwvdGQ+PHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz48Yj4gQW1vdW50IG9mIFRheCBEZWR1Y3RlZCA8L2I+PC90ZD48dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPjxiPiBBbW91bnQgb2YgVGF4ICBkZXBvc2l0ZWQvcmVtaXR0ZWQgPC9iPjwvdGQ+PC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gSSA8L3RkPjx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+MDMwMjA5NjAwNTE0MzMyIDwvdGQ+PHRkIGNvbHNwYW49JzInIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPlFTTVBJRFFFIDwvdGQ+PHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4wLjAwIDwvdGQ+PHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4wLjAwIDwvdGQ+PHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4wLjAwIDwvdGQ+PC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gSUkgPC90ZD48dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnID4wMzAyMDk2MDA1Mzk2ODMgICAgICAgICAgIDwvdGQ+PHRkIGNvbHNwYW49JzInIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPlFTUVRLQkRHIDwvdGQ+PHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz44MDI3Mi4wMCA8L3RkPjx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+MC4wMCA8L3RkPjx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+MC4wMCA8L3RkPjwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+IElJSSA8L3RkPjx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+MDMwMjA5NjAwNTU0ODYyICAgICAgICAgICA8L3RkPjx0ZCBjb2xzcGFuPScyJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz5RU1NKUVZGRiA8L3RkPjx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+OTEzMDkuMDAgPC90ZD48dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPjAuMDAgPC90ZD48dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPjAuMDAgPC90ZD48L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkICAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+IElWIDwvdGQ+PHRkICAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+MDMwMjA5NjAwNTg2NjMxICAgICAgICAgICA8L3RkPjx0ZCBjb2xzcGFuPScyJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz5RVEFOTVJFRSA8L3RkPjx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+OTM3NjIuMDAgPC90ZD48dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPjAuMDAgPC90ZD48dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPjAuMDAgPC90ZD48L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkICAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+IFRvdGFsIDwvdGQ+PHRkICAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+Jm5ic3A7IDwvdGQ+PHRkIGNvbHNwYW49JzInIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPiZuYnNwOyA8L3RkPjx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+MjY1MzQzLjAwIDwvdGQ+PHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4wLjAwIDwvdGQ+PHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4wLjAwIDwvdGQ+PC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc3JyB3aWR0aD0nODUlJyBhbGlnbj0nY2VudGVyJyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz48Yj5QQVJUIEIoQW5uZXh1cmUpIDwvYj48L3RkPjwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNycgd2lkdGg9Jzg1JScgYWxpZ249J2NlbnRlcicgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+PGI+REVUQUlMUyBPRiBTQUxBUlkgUEFJRCBBTlkgT1RIRVIgSU5DT01FIEFORCBUQVggREVEVUNURUQgPC9iPjwvdGQ+PC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCAxLiAmbmJzcCZuYnNwIEdyb3NzIFNhbGFyeTwvdGQ+ICA8dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwICZuYnNwJm5ic3AgJm5ic3AmbmJzcChhKSBTYWxhcnkgYXMgcGVyIHByb3Zpc2lvbiBjb250YWluZWQgaW4gc2VjdGlvbiAxNygxKTwvdGQ+ICA8dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz4gICZuYnNwOyAyNjUzNDMuMDA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCAmbmJzcCZuYnNwICZuYnNwJm5ic3AoYikgVmFsdWUgb2YgcGVycXVpc2l0ZXMgdW5kZXIgc2VjdGlvbiAxNygyKSA8YnIvPiAmbmJzcCAmbmJzcCZuYnNwICZuYnNwJm5ic3AgKEFzIHBlciBmb3JtIDEyQkEsd2hlcmV2ZXIgYXBwbGljYWJsZSkgPC90ZD48dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPiAgJm5ic3A7MC4wMDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwICZuYnNwJm5ic3AgJm5ic3AmbmJzcChjKSBQcm9maXRzIGluIGxpZXUgb2Ygc2FsYXJ5IHVuZGVyIHNlY3Rpb24gMTcoMyk8YnIvPiAgJm5ic3AgJm5ic3AmbmJzcCAmbmJzcCZuYnNwIChBcyBwZXIgZm9ybSAxMkJBLHdoZXJldmVyIGFwcGxpY2FibGUpIDwvdGQ+PHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+IDAuMDA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gJm5ic3AgJm5ic3AmbmJzcCAmbmJzcCZuYnNwKGQpIHRvdGFsPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz48Yj4gMjY1MzQzLjAwPC9iPiA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPiAgJm5ic3A7PC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgMi4gJm5ic3AmbmJzcCBMZXNzIDotIEFsbG93YW5jZSB0byB0aGUgZXh0ZW50IGV4ZW1wdGVkIHVuZGVyIHNlY3Rpb24gMTA8L3RkPiAgPHRkICBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCAmbmJzcCZuYnNwICZuYnNwJm5ic3AgSE9VU0UgUkVOVCBBTExPV0FOQ0VTPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnIGFsaWduPSdyaWdodCc+ICA0OTI1NS4wMDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gICZuYnNwOzwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gICZuYnNwOzwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnJz4mbmJzcCAmbmJzcCZuYnNwICZuYnNwJm5ic3AgQ09OVkVZQU5DRSBBTExPV0FOQ0UgPC90ZD48dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPiAxMzU2OC4wMDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnJz4mbmJzcCAmbmJzcCZuYnNwICZuYnNwJm5ic3AgTUVESUNBTCBBTExPV0FOQ0UgPC90ZD48dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPiAxMDYwMS4wMDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgPiAmbmJzcCAmbmJzcCZuYnNwICZuYnNwJm5ic3A8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz48Yj4gNzM0MjQuMDA8L2I+IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gICZuYnNwOzwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPiAmbmJzcCAzLiAmbmJzcCZuYnNwIEJhbGFuY2UoMS0yKTwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+ICAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnIGFsaWduPSdyaWdodCc+MTkxOTE5LjAwIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCA0LiAmbmJzcCZuYnNwIERlZHVjdGlvbjotPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgJm5ic3AmbmJzcCAmbmJzcCZuYnNwKGEpIEVudGVydGFpbm1lbnQgQWxsb3dhbmNlcyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOzwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7PC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgJm5ic3AmbmJzcCAmbmJzcCZuYnNwKGIpIFRheCBvbiBlbXBsb3ltZW50ICZuYnNwICZuYnNwJm5ic3AgJm5ic3AmbmJzcCZuYnNwICZuYnNwJm5ic3AgJm5ic3AmbmJzcCZuYnNwICZuYnNwJm5ic3AgJm5ic3AmbmJzcCAxNjQ3LjAwIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4mbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyAgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgNS4gQWdncmVnYXRlIG9mIDQoYSkgYW5kIChiKSA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz4xNjQ3LjAwIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwIDYuIEluY29tZSBDaGFyZ2VhYmxlIHVuZGVyIHRoZSBoZWFkICdTYWxhcmllcycgKDMtNSkgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz4gMTkwMjcyLjAwIDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwIDcuQWRkOkFueSBvdGhlciBpbmNvbWUgcmVwb3J0ZWQgYnkgZW1wbG95ZWUgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAwLjAwPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnIGFsaWduPSdyaWdodCc+Jm5ic3A7ICA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICAmbmJzcDs8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCAmbmJzcCZuYnNwJm5ic3AmbmJzcChhKSBPdGhlciBJbmNvbWUoTG9zcyBmcm9tIGhvdXNlIHByb3BlcnR5KSA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+Jm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPiAoMC4wMCk8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICAmbmJzcDs8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gJm5ic3AgOC4gR3Jvc3MgVG90YWwgSW5jb21lKDYrNykgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gJm5ic3A7PC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gJm5ic3A7PC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0JyBhbGlnbj0ncmlnaHQnPiAxOTAyNzIuMDAgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgOS4gRGVkdWN0aW9uIHVuZGVyIGNoYXB0ZXIgVkktQSA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+R3Jvc3MgQW1vdW50IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz5RdWFsaWZ5aW5nIEFtb3VudCA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+RGVkdWN0aWJsZSBBbW91bnQgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgJm5ic3AmbmJzcCZuYnNwIDgwIEMgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgJm5ic3AmbmJzcCZuYnNwJm5ic3AmbmJzcCBQRiA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz4xNjIwMC4wMCA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz4gMTYyMDAuMDA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz4xNjIwMC4wMCA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnIGNvbHNwYW49JzQnPiAmbmJzcCAmbmJzcCZuYnNwJm5ic3AgVG90YWwgZGVkdWN0aW9uIHVuZGVyIDgwIEMgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOzwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPjE2MjAwLjAwIDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwICZuYnNwJm5ic3AmbmJzcCA4MCBEIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwICZuYnNwJm5ic3AmbmJzcCZuYnNwJm5ic3AgTUVESUNBTCBJTlNVUkFOQ0UgUFJFTUlVTSBTRUxGIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPjUwOTYuMDAgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnIGFsaWduPSdyaWdodCc+IDUwOTYuMDA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz41MDk2LjAwIDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgY29sc3Bhbj0nNCc+ICZuYnNwICZuYnNwJm5ic3AmbmJzcCBUb3RhbCBkZWR1Y3Rpb24gdW5kZXIgODAgRCA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOzwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7PC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnIGFsaWduPSdyaWdodCc+NTA5Ni4wMCA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCAxMC4gQWdncmVnYXRlIG9mIGRlZHVjdGlibGUgYW1vdW50IHVuZGVyIGNoYXB0ZXIgVkktQSA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOzwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPjxiPjIxMjk2LjAwPC9iPiA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCAxMS5Ub3RhbCBJbmNvbWUgKDgtMTApIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7PC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnIGFsaWduPSdyaWdodCc+PGI+IDE2ODk3Ni4wMCA8L2I+PC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+ICZuYnNwIDEyLlRheCBvbiBUb3RhbCBJbmNvbWUgIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+ICAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0JyBhbGlnbj0ncmlnaHQnPjAuMDAgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgMTMuU3VyY2hhcmdlIChPbiB0YXggY29tcHV0ZWQgYXQgUy4gTm8uIDEyKSAgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAgJm5ic3A7PC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnIGFsaWduPSdyaWdodCc+MC4wMCA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCAxNC5FZHVjYXRpb24gQ2VzcyBAMyUgb24odGF4IGF0IHMuIE5vIDEyIGFuZCBTdXJjaGFyZ2VzIGF0IFMuIE5vLiAxMykgIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7PC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnIGFsaWduPSdyaWdodCc+MC4wMCA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcCAxNS5UYXggUGF5YWJsZSgxMisxMysxNCkgIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gICZuYnNwOzwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3A7IDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPjAuMDAgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+ICZuYnNwIDE2LlJlYmF0ZS9yZWxpZWYgdW5kZXIgc2VjdGlvbiA4OShhdHRhY2ggZGV0YWlscykgIDwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+ICAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0JyBhbGlnbj0ncmlnaHQnPjAuMDAgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgMTcuVGF4IFBheWFibGUoMTUtMTYpICA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOzwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0JyBhbGlnbj0ncmlnaHQnPjAuMDAgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AgMTguTGVzcyhhKVRheCBkZWR1Y3RlZCBhdCBzb3VyY2UgdS9zIDE5MigxKSAgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAgJm5ic3A7PC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCcgYWxpZ249J3JpZ2h0Jz4wLjAwIDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwJm5ic3AmbmJzcCZuYnNwJm5ic3AmbmJzcCZuYnNwKGIpVGF4IHBhaWQgYnkgdGhlIGVtcGxveWVyIG9uIGJlaGFsZiBvZiBlbXBsb3llZSAgdS9zIDE5MigxQSkgb24gcGVycXVpc2l0ZXMgdS9zIDE3KDIpICA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+MC4wMDwvdGQ+ICA8L3RyPjx0ciAgdmFsaWduID0gdG9wICA+PHRkIGNvbHNwYW49JzQnIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwJm5ic3AmbmJzcCZuYnNwJm5ic3AmbmJzcCZuYnNwKGMpVGF4IHBhaWQgYnkgdGhlIHByZXZpb3VzIGVtcGxveWVyICAgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAgJm5ic3A7PC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPiAmbmJzcDsgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb0JvdHRvbU5vUmlnaHQnPjAuMDAgPC90ZD4gIDwvdHI+PHRyICB2YWxpZ24gPSB0b3AgID48dGQgY29sc3Bhbj0nNCcgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9Cb3R0b21Ob1JpZ2h0Jz4gJm5ic3AmbmJzcCZuYnNwJm5ic3AmbmJzcCZuYnNwJm5ic3AoZClUYXggcGFpZCBieSBPdGhlciBTb3VyY2UgICA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICAmbmJzcDs8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vQm90dG9tTm9SaWdodCc+MC4wMCA8L3RkPiAgPC90cj48dHIgIHZhbGlnbiA9IHRvcCAgPjx0ZCBjb2xzcGFuPSc0JyBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gJm5ic3AgMTkuVGF4IFBheWFibGUvUmVmdW5kYWJsZSAgPC90ZD4gIDx0ZCBjbGFzcz0nbGVmdENlbGxzTm9Ub3BOb1JpZ2h0Jz4gICZuYnNwOzwvdGQ+ICA8dGQgY2xhc3M9J2xlZnRDZWxsc05vVG9wTm9SaWdodCc+ICZuYnNwOyA8L3RkPiAgPHRkIGNsYXNzPSdsZWZ0Q2VsbHNOb1RvcE5vUmlnaHQnIGFsaWduPSdyaWdodCc+MC4wMCA8L3RkPiAgPC90cj48L3RhYmxlPmRkAhMPDxYCHwJlZGQCFw8PFgIfAgUORyBESEFZQUxVUEFORElkZAIZDw8WAh8CBQtNUi5HVVJVU0FNWWRkAhsPDxYCHwIFGFNlbmlvciBNYW5hZ2VyIC0gRmluYW5jZWRkAh0PDxYCHwIFBDAuMDBkZAIfDw8WAh8CBQVaZXJvIGRkAiEPDxYCHwIFB0NoZW5uYWlkZAIjDw8WAh8CBQowNy8xMC8yMDE4ZGQCJQ8PFgIfAgUORyBESEFZQUxVUEFORElkZAInDw8WAh8CBRhTZW5pb3IgTWFuYWdlciAtIEZpbmFuY2VkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUPY3RsMDAkVHJlZVZpZXcxj5bsmPhSTNG3m+djENjg1L45MemzVU0gaFMgoMQrCdY=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/JSMeHRIS/WebResource.axd?d=07WZWHv85ycrO1dUZAJG7nXrA3w8fTsPNoN9cCR9urDGfFUG2SRIvCNRV5CPvTTq5l-2c8xhMmy-NedosXd83gubehfIW1ktrPCchOJ-TfY1&amp;t=635522358465168716" type="text/javascript"></script>
+
+
+<script src="/JSMeHRIS/WebResource.axd?d=bVHJNC5tsXICDCLsb1ADNoFJUuW6NVWxoIzszVMTUdms-BugJCazVJv342sJ2Lt1OxPAxJX-RO_i64f5qONCnatj-B3Qt4la3fygPE3-WwM1&amp;t=635522358465168716" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+    function TreeView_PopulateNodeDoCallBack(context,param) {
+        WebForm_DoCallback(context.data.treeViewID,param,TreeView_ProcessNodeData,context,TreeView_ProcessNodeData,false);
+    }
+var ctl00_TreeView1_Data = null;//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+</div>
+  
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="height: 72px">
+            <tr>
+                <td style="width:150px">
+                    <a target="_blank" class="ffont" href="http://www.jsmtechnologies.com">
+                        
+                            
+                              <img src="../images/jsm_logo2.png" id="ctl00_IMG4" height="81" title="Powered By JSM Technologies" style="border-bottom-style: none; border-left-style: none; border-right-style: none;
+                            border-top-style: none;" />
+                            
+                            
+                            </a>  </td>
+
+                          
+
+
+                         <td style="width: 90px" >
+                    <a target="_blank" class="ffont" href="http://www.jsmtechnologies.com">   
+                            <img src="../images/jsm_logo9.png" id="ctl00_IMG2" height="81" title="JSM Technology Pvt Ltd" style="border-bottom-style: none; border-left-style: none; border-right-style: none;
+                            border-top-style: none;" />
+                            
+                             
+                            
+                            
+                            </a>
+                            </td>
+                           
+                            
+                <td width="100px" valign ="middle" background="../images/top-bg.gif">
+                
+                <span id="ctl00_lblAdditionalLogo"></span>
+               
+                    </td>
+                <td background="../images/top-bg.gif" width="500px">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="100%" align="right" style="height: 49px">
+                                <strong>
+                                    Karthikeyan Murugesan
+                                    (SM0787)
+                                </strong>
+                               
+
+                                 <table>
+                                 <td  width="54%" align="Right" style="height: 19px">
+                                 <strong>
+                               
+                               </strong>
+                                </td>
+                                </table>
+                                
+                                <span id="ctl00_lblShowDesig">Linux Administrator</span>
+                               
+                                <br />
+                                 <span id="ctl00_lblShowAddDesig"></span>
+                               
+                              <br />
+                             
+
+                                <span id="ctl00_lblshowOffice">SOLVERMINDS SOLUTIONS AND TECHNOLOGIES PVT LTD</span>
+                                <br />
+                                <span id="ctl00_lblShowBranch">SOLVERMINDS-CHENNAI</span>
+                               
+                            </td>
+                            <td width="4%" align="center" style="height: 49px">
+                                <img src="../images/dot-img.gif" width="1" height="49" alt=""/></td> 
+                            <td width="18%" align="center" style="height: 49px">
+                              
+                                <span id="ctl00_LblPhoto"></span>
+                                </td>
+                                <td align="center" style="height: 20px; width:50px">
+                                <span id="ctl00_lblLogo"> <img    border='0' width='200' height='80'  id='Img2' src='../Misc/UILogoImageDetails.aspx?Topic=System.Byte[]'></span>
+                                
+                                </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table border="0" cellspacing="0" cellpadding="0" bgcolor="#185dad"      
+            style="width: 100%; height: 20px">
+            <tr>
+                <td height="20" width="25%" class="ffont pad-l-r">
+                    <b>
+                        <span id="ctl00_Label1">01 Apr 2019</span></b>
+                        &nbsp;&nbsp;&nbsp;
+                       <b> <span id="ctl00_Label2">Login->Employee</span></b>
+                        </td>
+                <td width="50%">
+                    <table width="530px" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="70px" height="20" align="left">
+                               <a id="ctl00_LBCalendar" href="javascript:__doPostBack(&#39;ctl00$LBCalendar&#39;,&#39;&#39;)" style="color:White;font-size:12px;">Calendar</a>
+                                  
+                            </td>
+                            <td width="60px" height="20" align="left">
+                                <a id="ctl00_LBHoliday" href="javascript:__doPostBack(&#39;ctl00$LBHoliday&#39;,&#39;&#39;)" style="color:White;font-size:12px;">Holiday</a>
+                            </td>
+                            <td width="105px" align="left">
+                                <a id="ctl00_LBPicture" href="javascript:__doPostBack(&#39;ctl00$LBPicture&#39;,&#39;&#39;)" style="color:White;font-size:12px;">Picture Library</a></td>
+                            <td align="left" style="width: 150px">
+                                
+                            </td>
+                            <!--<td width="1"  class="ffont">|</td>-->
+                            <td width="123px" align="left">
+                                </td>
+                            <td align="left" nowrap="nowrap" width="82px">
+                            <a id="ctl00_HLMyprofile" href="javascript:__doPostBack(&#39;ctl00$HLMyprofile&#39;,&#39;&#39;)" style="color:White;font-size:12px;">My Profile</a>
+
+                               
+                            </td>
+                            
+                        </tr>
+                    </table>
+                </td>
+                <td align="right" class="ffont smlfont pad-l-r" style="width:300px">
+                    <a id="ctl00_LBHome" href="javascript:__doPostBack(&#39;ctl00$LBHome&#39;,&#39;&#39;)" style="color:White;">Home</a>
+                    |
+                    <a id="ctl00_LBLogout" href="javascript:__doPostBack(&#39;ctl00$LBLogout&#39;,&#39;&#39;)" style="color:White;">Logout</a>
+                   
+                    <a id="ctl00_HLChangepassword" href="../Misc/changepassword.aspx" style="color:White;"> | Change Password </a>
+                        |
+                    <a id="ctl00_HyperLink1" href="../Misc/UIchangeLogin.aspx" style="color:White;">Switch Login</a>
+                        </td>
+            </tr>
+            </table>
+         <table border="0" cellspacing="0" cellpadding="0" bgcolor="#185dad"      
+            style="width: 100%; height: 20px">
+            <tr >
+            <td height="20" width="25%" class="ffont pad-l-r" >
+                    <b>
+                        <span id="ctl00_lblnamelastlogin">Welcome : Karthikeyan Murugesan</span></b>
+                        </td>
+                        <td height="20" width="25%" class="ffont pad-l-r" >
+                    <b>
+                     <span id="ctl00_lblIPAddress"></span>
+                    </b> 
+                    </td> 
+                     <td height="20" width="25%" class="ffont pad-l-r" >
+                    <b>
+                     <span id="ctl00_lblunsuccessfullattempt"></span>
+                    </b> 
+                    </td> 
+                       <td align="right" class="ffont smlfont pad-l-r" style="width:300px">
+                       <b> <span id="ctl00_Label4"></span></b>
+                        </td>
+            </tr>
+        </table>
+         <table style="height: 100%; width: 100%;" align="left">
+         <tr><td style="width: 15%" valign="top">
+        <table style="width: 100%;" align="left">
+            <tr class="rootnode">
+                <td class="rootnode" style="height: 70%; width: 204px; line-height: 15px;" valign="top">
+                    <div id="ctl00_TreeView1" class="right-pad-bg left-td-bdr menutext-blk" style="width:193px;">
+	<table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n0" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,0,document.getElementById(&#39;ctl00_TreeView1n0&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n0Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand Announcement" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t0" style="border-style:none;font-size:1em;">Announcement</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n0Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Announcement/UIServiceCompletion.aspx" id="ctl00_TreeView1t1">Service Completion</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Announcement/WeddingAnniversary.aspx" id="ctl00_TreeView1t2">Wedding Anniversary</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Announcement/CeoSpace.aspx" id="ctl00_TreeView1t3">Message From CEO</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Announcement/Thoughtoftheweek.aspx" id="ctl00_TreeView1t4">Thought of the Week</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Announcement/UINewsDetails.aspx" id="ctl00_TreeView1t5">News</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Announcement/Birthday.aspx" id="ctl00_TreeView1t6">Birthday</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n7" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,7,document.getElementById(&#39;ctl00_TreeView1n7&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n7Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand HR Policies and Forms" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t7" style="border-style:none;font-size:1em;">HR Policies and Forms</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n7Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../HR%20Policies%20and%20Forms/HRpolicies.aspx" id="ctl00_TreeView1t8">HR Policies</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../HR%20Policies%20and%20Forms/HRforms.aspx" id="ctl00_TreeView1t9">HR Forms</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n10" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,10,document.getElementById(&#39;ctl00_TreeView1n10&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n10Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand Feedback" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t10" style="border-style:none;font-size:1em;">Feedback</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n10Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Feedback/ReportLostItems.aspx" id="ctl00_TreeView1t11">Item Lost</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Feedback/ReportItemsFound.aspx" id="ctl00_TreeView1t12">Item Found</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n13" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,13,document.getElementById(&#39;ctl00_TreeView1n13&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n13Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand Leave" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t13" style="border-style:none;font-size:1em;">Leave</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n13Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../LeaveAndAttendance/Leavesummary.aspx" id="ctl00_TreeView1t14">Leave Balance</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../LeaveAndAttendance/UIMyLeaveMenu.aspx" id="ctl00_TreeView1t15">My Leave</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../LeaveAndAttendance/UILeaveApproval.aspx" id="ctl00_TreeView1t16">Leave Approval</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../LeaveAndAttendance/UILeaveCancellationMenu.aspx" id="ctl00_TreeView1t17">Leave Cancellation</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../LeaveAndAttendance/UILeaveCancelationApprovalMenu.aspx" id="ctl00_TreeView1t18">Cancellation Approval</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n19" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,19,document.getElementById(&#39;ctl00_TreeView1n19&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n19Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand Attendance" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t19" style="border-style:none;font-size:1em;">Attendance</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n19Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UIMyAttendancemenu.aspx" id="ctl00_TreeView1t20">My Attendance</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UIApproveAttendance.aspx" id="ctl00_TreeView1t21">Approve Attendance</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UIWOffWorkingMenu.aspx" id="ctl00_TreeView1t22">WOff Working</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UIWOffApprovalMenu.aspx" id="ctl00_TreeView1t23">WOff Approval</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UIWOffCancellation.aspx" id="ctl00_TreeView1t24">Woff Cancellation</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UICompOffBalance.aspx" id="ctl00_TreeView1t25">CompOff Balance</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UICompOffMenu.aspx" id="ctl00_TreeView1t26">CompOff</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UICompOffApprovalMenu.aspx" id="ctl00_TreeView1t27">CompOff Approval</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Attendance/UICompOffCancellation.aspx" id="ctl00_TreeView1t28">CompOff Cancellation</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n29" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,29,document.getElementById(&#39;ctl00_TreeView1n29&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n29Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand My Loans" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t29" style="border-style:none;font-size:1em;">My Loans</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n29Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../MyLoans/UILoanDetails.aspx" id="ctl00_TreeView1t30">Loan Details</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n31" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,31,document.getElementById(&#39;ctl00_TreeView1n31&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n31Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand Compensation &amp; Benefits" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t31" style="border-style:none;font-size:1em;">Compensation & Benefits</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n31Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Salary/MySalarySlip.aspx" id="ctl00_TreeView1t32">My Salary Slip</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n33" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,33,document.getElementById(&#39;ctl00_TreeView1n33&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n33Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand Tax Details" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t33" style="border-style:none;font-size:1em;">Tax Details</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n33Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../TDS/TDSSelectYear.aspx" id="ctl00_TreeView1t34">My Tax Advice</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="frmSubmissionOfProofs.aspx" id="ctl00_TreeView1t35">Submission of Proofs</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="UIMyFormSixteenReport.aspx" id="ctl00_TreeView1t36">My Form 16</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div><table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tr>
+			<td><a id="ctl00_TreeView1n37" href="javascript:TreeView_ToggleNode(ctl00_TreeView1_Data,37,document.getElementById(&#39;ctl00_TreeView1n37&#39;),&#39; &#39;,document.getElementById(&#39;ctl00_TreeView1n37Nodes&#39;))"><img src="/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&amp;t=635522358465168716" alt="Expand Exit" style="border-width:0;" /></a></td><td class="rootnode ctl00_TreeView1_2"><span class="ctl00_TreeView1_0 rootnode ctl00_TreeView1_1" id="ctl00_TreeView1t37" style="border-style:none;font-size:1em;">Exit</span></td>
+		</tr>
+	</table><div id="ctl00_TreeView1n37Nodes" style="display:none;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Exit/UIMyIntimationMenu.aspx" id="ctl00_TreeView1t38">My Intimation</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Exit/UIIntimationApprovalMenu.aspx" id="ctl00_TreeView1t39">Intimation Acceptance</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Exit/UIExitChecklistAcceptanceMenu.aspx" id="ctl00_TreeView1t40">Exit Checklist</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Exit/UIExitChecklistMenu.aspx" id="ctl00_TreeView1t41">My Exit Checklist Acceptance</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:20px;height:1px"></div></td><td><img src="/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&amp;t=635522358465168716" alt="" /></td><td class="ctl00_TreeView1_3" onmouseover="TreeView_HoverNode(ctl00_TreeView1_Data, this)" onmouseout="TreeView_UnhoverNode(this)"><a class="ctl00_TreeView1_0" href="../Exit/UIExitInterviewMenu.aspx" id="ctl00_TreeView1t42">My Exit Interview</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td  style="height: 100%;"  width ="100%"> 
+                         
+                   
+                               
+                  
+                   
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 70%; width: 204px;">
+                    <br />
+                    
+                </td>
+            </tr>
+        </table> </td> 
+        <td style="height: 85%;" valign="top" >
+      
+        <table align="left" style="width: 100%" >
+            <tr>
+                <td >
+                    
+
+ <link href="../Styles/Style.css" rel="stylesheet" type="text/css" />
+
+    <script src="../ClientScripts/Common.js" language="javascript" type="text/javascript"></script>
+
+    <script type="text/javascript" language="javascript" src="../Includes/Script.js"></script>
+
+
+ 
+<div id="ctl00_ContentPlaceHolder1_divReport" class="header" width="100%">
+
+<table width="100%">
+            
+            <tr>
+                <td align="left">                    
+                   <input type="submit" name="ctl00$ContentPlaceHolder1$Button2" value="Back" id="ctl00_ContentPlaceHolder1_Button2" class="button" />                    
+                </td>
+                 <td align="right">
+                    <input type="submit" name="ctl00$ContentPlaceHolder1$btnPDF" value="Export To PDF- With Digital Signature" id="ctl00_ContentPlaceHolder1_btnPDF" class="button" style="width:270px;" />
+                         <input type="submit" name="ctl00$ContentPlaceHolder1$Button3" value="Export To PDF - Without Digital Signature" id="ctl00_ContentPlaceHolder1_Button3" class="button" style="width:270px;" />
+                    <input type="submit" name="ctl00$ContentPlaceHolder1$btnPrint" value="Print Preview" onclick="javascript:getPrint(&#39;divPrint&#39;);" id="ctl00_ContentPlaceHolder1_btnPrint" class="button" style="width:150px;" />
+                </td>
+            </tr>
+
+</table>
+<div id="divPrint" class="header" width="100%">   
+    <table width="100%">
+            
+
+</table>
+    <table class="header" style="width: 100%"  >
+	    <tr>
+		    <td align="center" class="colstyle">Form 16</td>
+		</tr>
+		</table> 
+    <br />
+    
+<br />
+
+<table   align="center" >
+            <tr>
+          
+                <td align="left" width="120px" >
+                <div id="divHeader1" class="header" >
+                <span id="ctl00_ContentPlaceHolder1_lblfotm16" style="font-size:10pt;font-weight:bold;">Form No. 16</span>
+                <br />
+                <span id="ctl00_ContentPlaceHolder1_Label2">[See Rule 31(1)(a)]</span>
+                
+
+</div> 
+                   
+                   </td>
+                    <td align="center" >
+               
+                <span id="ctl00_ContentPlaceHolder1_Label1" style="font-weight:bold;font-style:italic;">Certificate under section 203 of the Income-tax act, 1961 for tax deducted at source from Income chargeables under the head 'Salaries'</span>
+                
+                
+
+
+                   
+                   </td>
+              
+            </tr>
+            
+        </table> 
+		 
+<br />
+<table    width="100%">
+            <tr>
+          
+                <td align="left"  >
+               
+                <span id="ctl00_ContentPlaceHolder1_lblAddress" style="display:inline-block;width:100%;"><table width=100% style='border: solid 1px #e1e4ea;'  cellpadding = 4  cellspacing = 0><tr  valign = top  ><td colspan='4' width='60%' class='leftCells'> Name and Address Of the Employer</td><td colspan='3' width='40%' class='leftCells'>Name and Designation Of the Employee</td></tr><tr  valign = top  ><td colspan='4' class='leftCells'> <b>SOLVERMINDS-CHENNAI</b><br/>    Chennai-603103   </td><td colspan='3' class='leftCells'> Karthikeyan Murugesan<br/> Linux Administrator <br/>  Employee Code: SM0787   </td></tr><tr  valign = top  ><td colspan='2' width='30%' class='leftCellsNoRight'> PAN NO Of the Deductor</td><td colspan='2' width='30%' class='leftCellsNoRight'> TAN NO Of the Deductor</td><td colspan='3' width='40%' class='leftCellsNoRight'> PAN NO Of the Employee</td></tr><tr  valign = top  ><td colspan='2' class='leftCellsNoTopNoRight'>  &nbsp;AAICS1132N</td>  <td colspan='2' class='leftCellsNoTopNoRight'>  &nbsp;CHES22183A</td>  <td colspan='3' class='leftCellsNoTopNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='5' class='leftCellsNoTopNoRight'> <b>Period with the Employer</b></td><td rowspan='2' class='leftCellsNoTopNoRight'><b> Assessment Year</b></td></tr><tr  valign = top  ><td colspan='3' class='leftCellsNoTopNoRight'> From </td><td colspan='2' class='leftCellsNoTopNoRight'> To</td></tr><tr  valign = top  ><td colspan='3' class='leftCellsNoTopNoRight'> 07/13/2017</td>  <td colspan='2' class='leftCellsNoTopNoRight'> 03/31/2018</td>  <td colspan='2' class='leftCellsNoTopNoRight'> 2018-2019</td>  </tr><tr  valign = top  ><td colspan='7' class='leftCellsNoTopNoRight'><b> Summary of Amount Paid/Credited and tax Deducted at Source theorem in respect of the employee </b> </td></tr><tr  valign = top  ><td  class='leftCellsNoTopNoRight'><b> Quarters  </b></td><td  class='leftCellsNoTopNoRight'><b> Acknowledgement No </b> </td><td colspan='2' class='leftCellsNoTopNoRight'><b> Receipt No of Original Quarterly statements of TDS  under Subsection(3) of Section 200 </b></td><td  class='leftCellsNoTopNoRight'><b> Amount Paid/Credited </b></td><td  class='leftCellsNoTopNoRight'><b> Amount of Tax Deducted </b></td><td  class='leftCellsNoTopNoRight'><b> Amount of Tax  deposited/remitted </b></td></tr><tr  valign = top  ><td class='leftCellsNoTopNoRight'> I </td><td  class='leftCellsNoTopNoRight'>030209600514332 </td><td colspan='2' class='leftCellsNoTopNoRight'>QSMPIDQE </td><td  class='leftCellsNoTopNoRight'>0.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td></tr><tr  valign = top  ><td class='leftCellsNoTopNoRight'> II </td><td  class='leftCellsNoTopNoRight' >030209600539683           </td><td colspan='2' class='leftCellsNoTopNoRight'>QSQTKBDG </td><td  class='leftCellsNoTopNoRight'>80272.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td></tr><tr  valign = top  ><td class='leftCellsNoTopNoRight'> III </td><td  class='leftCellsNoTopNoRight'>030209600554862           </td><td colspan='2' class='leftCellsNoTopNoRight'>QSSJQVFF </td><td  class='leftCellsNoTopNoRight'>91309.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td></tr><tr  valign = top  ><td   class='leftCellsNoTopNoRight'> IV </td><td   class='leftCellsNoTopNoRight'>030209600586631           </td><td colspan='2' class='leftCellsNoTopNoRight'>QTANMREE </td><td  class='leftCellsNoTopNoRight'>93762.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td></tr><tr  valign = top  ><td   class='leftCellsNoTopNoRight'> Total </td><td   class='leftCellsNoTopNoRight'>&nbsp; </td><td colspan='2' class='leftCellsNoTopNoRight'>&nbsp; </td><td  class='leftCellsNoTopNoRight'>265343.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td><td  class='leftCellsNoTopNoRight'>0.00 </td></tr><tr  valign = top  ><td colspan='7' width='85%' align='center' class='leftCellsNoTopNoRight'><b>PART B(Annexure) </b></td></tr><tr  valign = top  ><td colspan='7' width='85%' align='center' class='leftCellsNoTopNoRight'><b>DETAILS OF SALARY PAID ANY OTHER INCOME AND TAX DEDUCTED </b></td></tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 1. &nbsp&nbsp Gross Salary</td>  <td  class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td  class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td  class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp &nbsp&nbsp(a) Salary as per provision contained in section 17(1)</td>  <td  class='leftCellsNoTopNoBottomNoRight' align='right'>  &nbsp; 265343.00</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp &nbsp&nbsp(b) Value of perquisites under section 17(2) <br/> &nbsp &nbsp&nbsp &nbsp&nbsp (As per form 12BA,wherever applicable) </td><td class='leftCellsNoTopNoBottomNoRight' align='right'>  &nbsp;0.00</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp &nbsp&nbsp(c) Profits in lieu of salary under section 17(3)<br/>  &nbsp &nbsp&nbsp &nbsp&nbsp (As per form 12BA,wherever applicable) </td><td class='leftCellsNoTopNoBottomNoRight'> 0.00</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoRight'> &nbsp &nbsp&nbsp &nbsp&nbsp(d) total</td>  <td class='leftCellsNoTopNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoRight' align='right'><b> 265343.00</b> </td>  <td class='leftCellsNoTopNoRight'>  &nbsp;</td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 2. &nbsp&nbsp Less :- Allowance to the extent exempted under section 10</td>  <td  class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td  class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td  class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp &nbsp&nbsp HOUSE RENT ALLOWANCES</td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>  49255.00</td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  </tr><tr  valign = top  ><td colspan='4' class='class='leftCellsNoTopNoBottomNoRight''>&nbsp &nbsp&nbsp &nbsp&nbsp CONVEYANCE ALLOWANCE </td><td class='leftCellsNoTopNoBottomNoRight' align='right'> 13568.00</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='class='leftCellsNoTopNoBottomNoRight''>&nbsp &nbsp&nbsp &nbsp&nbsp MEDICAL ALLOWANCE </td><td class='leftCellsNoTopNoBottomNoRight' align='right'> 10601.00</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight' > &nbsp &nbsp&nbsp &nbsp&nbsp</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'><b> 73424.00</b> </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoRight'> &nbsp 3. &nbsp&nbsp Balance(1-2)</td>  <td class='leftCellsNoTopNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoRight' align='right'>191919.00 </td>  <td class='leftCellsNoTopNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 4. &nbsp&nbsp Deduction:-</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp &nbsp&nbsp(a) Entertainment Allowances </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp &nbsp&nbsp(b) Tax on employment &nbsp &nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp 1647.00 </td>  <td class='leftCellsNoTopNoBottomNoRight'>&nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4'  class='leftCellsNoTopNoBottomNoRight'> &nbsp 5. Aggregate of 4(a) and (b) </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>1647.00 </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 6. Income Chargeable under the head 'Salaries' (3-5) </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'> 190272.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 7.Add:Any other income reported by employee </td>  <td class='leftCellsNoTopNoBottomNoRight'> 0.00</td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>&nbsp;  </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp&nbsp&nbsp(a) Other Income(Loss from house property) </td>  <td class='leftCellsNoTopNoBottomNoRight'>&nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'> (0.00)</td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoRight'> &nbsp 8. Gross Total Income(6+7) </td>  <td class='leftCellsNoTopNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoRight' align='right'> 190272.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 9. Deduction under chapter VI-A </td>  <td class='leftCellsNoTopNoBottomNoRight'>Gross Amount </td>  <td class='leftCellsNoTopNoBottomNoRight'>Qualifying Amount </td>  <td class='leftCellsNoTopNoBottomNoRight'>Deductible Amount </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp&nbsp 80 C </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp PF </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>16200.00 </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'> 16200.00</td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>16200.00 </td>  </tr><tr  valign = top  ><td class='leftCellsNoTopNoBottomNoRight' colspan='4'> &nbsp &nbsp&nbsp&nbsp Total deduction under 80 C </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>16200.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp&nbsp 80 D </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp MEDICAL INSURANCE PREMIUM SELF </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>5096.00 </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'> 5096.00</td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>5096.00 </td>  </tr><tr  valign = top  ><td class='leftCellsNoTopNoBottomNoRight' colspan='4'> &nbsp &nbsp&nbsp&nbsp Total deduction under 80 D </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>5096.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 10. Aggregate of deductible amount under chapter VI-A </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'><b>21296.00</b> </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 11.Total Income (8-10) </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'><b> 168976.00 </b></td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoRight'> &nbsp 12.Tax on Total Income  </td>  <td class='leftCellsNoTopNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoRight' align='right'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 13.Surcharge (On tax computed at S. No. 12)  </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 14.Education Cess @3% on(tax at s. No 12 and Surcharges at S. No. 13)  </td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 15.Tax Payable(12+13+14)  </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoRight'> &nbsp 16.Rebate/relief under section 89(attach details)  </td>  <td class='leftCellsNoTopNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoRight' align='right'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 17.Tax Payable(15-16)  </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp 18.Less(a)Tax deducted at source u/s 192(1)  </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight' align='right'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(b)Tax paid by the employer on behalf of employee  u/s 192(1A) on perquisites u/s 17(2)  </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'>0.00</td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(c)Tax paid by the previous employer   </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoBottomNoRight'> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(d)Tax paid by Other Source   </td>  <td class='leftCellsNoTopNoBottomNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoBottomNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoBottomNoRight'>0.00 </td>  </tr><tr  valign = top  ><td colspan='4' class='leftCellsNoTopNoRight'> &nbsp 19.Tax Payable/Refundable  </td>  <td class='leftCellsNoTopNoRight'>  &nbsp;</td>  <td class='leftCellsNoTopNoRight'> &nbsp; </td>  <td class='leftCellsNoTopNoRight' align='right'>0.00 </td>  </tr></table></span>
+                                </td></tr> </table> 
+    <br />
+    <br />
+    <br />                            
+                 
+                                <table    width="100%">
+            <tr>
+          
+                <td align="left"  >
+               
+                <span id="ctl00_ContentPlaceHolder1_lblTransaction" style="display:inline-block;width:100%;"></span>
+                                </td></tr> </table> 
+                                <br />
+                                 <table width="100%">
+                <tr>
+                    <td align="center" width="100%">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span id="ctl00_ContentPlaceHolder1_Label7" style="display:inline-block;font-weight:bold;width:100%;">Verification</span>
+                    </td>
+                   
+                </tr>
+            </table>
+            <br />
+                 <table    width="98%" align="center" >
+            <tr>
+          
+                <td align="left"  >
+               I  
+                <span id="ctl00_ContentPlaceHolder1_lblName">G DHAYALUPANDI</span> Son/Daughter of <span id="ctl00_ContentPlaceHolder1_lblFatherName">MR.GURUSAMY</span>
+                working in the capacity of <span id="ctl00_ContentPlaceHolder1_lblDesignation">Senior Manager - Finance</span> (Designation) do hereby certify that a sum of 
+                    Rs.<span id="ctl00_ContentPlaceHolder1_lblAmount">0.00</span> &nbsp;[Rupees <span id="ctl00_ContentPlaceHolder1_lblAmountinwords">Zero </span> only (In words)] has
+                been deducted at source and paid to the credit of the Central Government. I further certify that the information given above is true and correct based on the books of account,
+                documents and other available records. 
+                                </td></tr> </table>               
+            <br />
+            <br />    
+            
+             <table    width="98%" align="center" >
+            <tr>
+          
+                <td align="left"  width="50%">
+                Place : &nbsp;<span id="ctl00_ContentPlaceHolder1_lblstrPlace" style="display:inline-block;width:100%;">Chennai</span>
+                </td> 
+                 <td align="center"  width="50%">
+                 ............................. .................
+                </td>
+                
+                
+                </tr> 
+                 <tr>
+          
+                <td align="left"  width="50%">
+                Date : &nbsp;<span id="ctl00_ContentPlaceHolder1_lblstrDate" style="display:inline-block;width:100%;">07/10/2018</span>
+                </td> 
+                 <td align="center"  width="50%">
+                 Signature of the person responsible for deduction of tax
+                </td>
+                
+                
+                </tr> 
+                 <tr>
+          
+                <td align="left"  width="50%">
+               
+                </td> 
+                 <td align="left"  width="50%">
+                 Full Name :  <span id="ctl00_ContentPlaceHolder1_lblFullName" style="display:inline-block;width:100%;">G DHAYALUPANDI</span>
+                </td>
+                
+                
+                </tr> 
+                <tr>
+          
+                <td align="left"  width="50%">
+               
+                </td> 
+                 <td align="left"  width="50%">
+                 Designation :  <span id="ctl00_ContentPlaceHolder1_lblDesig" style="display:inline-block;width:100%;">Senior Manager - Finance</span>
+                </td>
+                
+                
+                </tr>
+                
+                </table>                 
+
+
+
+
+
+ <br />
+            <br />
+            
+         
+
+</div> 
+</div> 
+
+
+
+
+
+                </td>
+            </tr>
+        </table></td></tr> </table>
+       
+           <div style="position: fixed; right: 15px; text-align: right; bottom: 5px; z-index: 2147483647;"><img ID="imgbtn"   src="../images/top.png" border="0" onclick="javascript:window.scrollTo(0,0);"/>  </div> 
+    
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_TreeView1_ImageArray =  new Array('', '', '', '/JSMeHRIS/WebResource.axd?d=edx8YnZjstID15Uc_pXKiitt8RAu2aBFW5rp3goXqQNdGbMCXWI2XKJ9sf0YnSLiRLSuEMZoXHYPzjppeY3HWofUXGit040MOFH_fb_hgd2IZezjUJofFabOtZLiv22g0&t=635522358465168716', '/JSMeHRIS/WebResource.axd?d=XcT9caJXVs1VpNWqRTWk23OvrfEn3PJbifPp8jPNYapze1ba689rmpKCTC3gMu1nJH0YJNmPnw2suYVdv_NkMtJXC9UTDkwurVmc6isD0cyQyOy_-qZcbPK5D4Xw_ham0&t=635522358465168716', '/JSMeHRIS/WebResource.axd?d=eYthikD1lONUeKeBfqe7tI_Ty-hZqYiqMaA5b8WyPNcElQJa3Kb8D28I8qKbK7kHk2mKz9T_3NS_ywxWff29sNRppvfNTf5MOzvrZ1MyQYYl3Ys2W6uoIwgQNCJ9YlT10&t=635522358465168716');
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+alert('Signature Not Valid');
+WebForm_InitCallback();var ctl00_TreeView1_Data = new Object();
+ctl00_TreeView1_Data.images = ctl00_TreeView1_ImageArray;
+ctl00_TreeView1_Data.collapseToolTip = "Collapse {0}";
+ctl00_TreeView1_Data.expandToolTip = "Expand {0}";
+ctl00_TreeView1_Data.expandState = theForm.elements['ctl00_TreeView1_ExpandState'];
+ctl00_TreeView1_Data.selectedNodeID = theForm.elements['ctl00_TreeView1_SelectedNode'];
+ctl00_TreeView1_Data.hoverClass = 'ctl00_TreeView1_5';
+ctl00_TreeView1_Data.hoverHyperLinkClass = 'ctl00_TreeView1_4';
+(function() {
+  for (var i=0;i<6;i++) {
+  var preLoad = new Image();
+  if (ctl00_TreeView1_ImageArray[i].length > 0)
+    preLoad.src = ctl00_TreeView1_ImageArray[i];
+  }
+})();
+ctl00_TreeView1_Data.lastIndex = 43;
+ctl00_TreeView1_Data.populateLog = theForm.elements['ctl00_TreeView1_PopulateLog'];
+ctl00_TreeView1_Data.treeViewID = 'ctl00$TreeView1';
+ctl00_TreeView1_Data.name = 'ctl00_TreeView1_Data';
+
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+
+theForm.oldOnLoad = window.onload;
+window.onload = WebForm_RestoreScrollPosition;
+//]]>
+</script>
+</form>
+   
+
+      <script type="text/javascript">
+          var myIndex = 0;
+          carousel();
+
+          function carousel() {
+              var i;
+              var x = document.querySelectorAll("mySlides");
+              for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
+              }
+              myIndex++;
+              if (myIndex > x.length) { myIndex = 1 }
+              x[myIndex - 1].style.display = "block";
+              setTimeout(carousel, 2000); // Change image every 2 seconds
+              
+          }
+
+</script>
+
+</body>
+</html>

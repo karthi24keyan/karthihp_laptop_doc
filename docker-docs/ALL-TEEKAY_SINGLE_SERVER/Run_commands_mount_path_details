@@ -1,0 +1,42 @@
+
+Docker Run Commands for Teekay - VBS,IA,RM
+===========================================
+
+sudo docker run --name teekay-mysql -p 3307:3306 --restart unless-stopped -e MYSQL_ROOT_PASSWORD=R@@Tt@@kY -v /home/centos/DATA/MySQL-Container-Data/conf.d:/etc/mysql/conf.d -v /home/centos/DATA/MySQL-Container-Data/mysql:/var/lib/mysql -d mysql/mysql-server:5.7.20
+
+
+VBS
+===
+
+sudo docker run -d --net=host --restart unless-stopped -v /home/centos/DATA/mount-point/vbs_rulesheet:/home/shareuser/newshare teekay_service_v2
+sudo docker run -d --net=host --restart unless-stopped -v /home/centos/DATA/mount-point/vbs_rulesheet:/home/shareuser/newshare teekay_datajob_v2
+sudo docker run -d --net=host --restart unless-stopped teekay_html_v3
+
+
+Injury
+======
+
+sudo docker run -d --net=host --restart unless-stopped -v /home/centos/DATA/mount-point/Injury_Analysis:/home/Injury_analysis injury_java
+sudo docker run -d --net=host --restart unless-stopped injury_frontend_2
+
+RiskMapping
+===========
+sudo docker run -d --net=host --restart unless-stopped -v /home/centos/DATA/mount-point/Risk_Teekay:/home/teekay rm_java_4
+sudo docker run -d --net=host --restart unless-stopped -v /home/centos/DATA/mount-point/Risk_Teekay:/home/teekay rm_python
+sudo docker run -d --net=host --restart unless-stopped rm_frontend_3
+
+
+
+
+Mount Points:
+=============
+
+SYNTAX:  <PHYSICAL_MOUNT>:<CONTAINER_MOUNT>
+
+/home/centos/DATA/mount-point/vbs_rulesheet:/home/shareuser/newshare
+
+/home/centos/DATA/mount-point/Injury_Analysis:/home/Injury_analysis
+
+/home/centos/DATA/mount-point/Risk_Teekay:/home/teekay
+
+

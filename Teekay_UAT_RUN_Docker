@@ -1,0 +1,28 @@
+
+sudo docker run --name teekay-uat-mysql --restart unless-stopped -e MYSQL_ROOT_PASSWORD=Solver@2020 -v /home/ubuntu/MySQL-Container-Data/conf.d:/etc/mysql/conf.d -v /home/ubuntu/MySQL-Container-Data/mysql:/var/lib/mysql -v /home/ubuntu/my.cnf:/etc/my.cnf -d mysql/mysql-server:5.7.20
+
+
+
+Perfect Executed:
+==================
+sudo docker run --name teekay-uat-mysql --restart unless-stopped -e MYSQL_ROOT_PASSWORD=Solver@2020 -v /home/ubuntu/MySQL-Container-Data/mysql:/var/lib/mysql -v /home/ubuntu/MySQL-Container-Data/etc:/etc -d mysql/mysql-server:5.7.25
+
+sudo docker run -d --net=host --restart unless-stopped -v /home/ubuntu/ssl-keys:/home/ubuntu/ssl-keys apache_main_all_teekay
+
+IA
+===
+sudo docker run -d --net=host --restart unless-stopped -v /home/Injury_analysis:/home/Injury_analysis injury_java_2
+sudo docker run -d --net=host --restart unless-stopped injury_frontend_2
+
+RM
+==
+sudo docker run -d --net=host --restart unless-stopped -v /home/teekay:/home/teekay risk_java
+sudo docker run -d --net=host --restart unless-stopped risk_frontend
+sudo docker run -d --net=host --restart unless-stopped -v /home/teekay:/home/teekay -v /home/ubuntu/Teekay-Phase-2/teekay/loger.log:/app/loger.log risk_python
+
+VBS
+====
+sudo docker run -d --net=host --restart unless-stopped -v /home/shareuser:/home/shareuser/ vbs_datajob
+sudo docker run -d --net=host --restart unless-stopped -v /home/shareuser:/home/shareuser vbs_service
+sudo docker run -d --net=host --restart unless-stopped vbs_frontend
+

@@ -1,0 +1,774 @@
+					   . . . . . . Linux . . . . . .
+					. . . . . . . . .. . . . . . . . .
+
+=====COmMAnDS=====
+
+
+ls :
+----
+
+   ls -1tr | tail -1 | xargs cat    	----> Command to view the Content of the last Edited File 
+   ls -F | grep /		     	----> Command to list only folders
+   ls -l | grep ^d		     	----> Command to list only folders
+   ls -l | sed -n '/^d/p'           	----> Command to list only folders
+   ls -l | sed -n '/^d/!p'          	----> Command to view only files in the folder 
+   ls -l | sed '/^total/d' | sed -n '/^d/!p    ----> Command to view only files in the folder
+   ls -lFSh | grep -v '/' | sed -n '/total/!p' ----> Command to view only files and arrange it in ascending order according to file Size
+   ls -a			    	----> Command to view all hidden files
+   ls -A			    	----> Command to view all hidden files
+   ls -1tr			    	----> Command to view last edited file
+   ls -lh test.pdf		    	----> Command to view size of a file
+   ls -lhS | sed -n '/^d/!p'       	----> Command to view the files based on its size in acending order
+   ls -R                           	----> Command to view all the file inside a folder recursively
+   ls -1			    	----> Command to display one file per line
+   ls -r			    	----> Command to do reverse search in ls
+   dir					----> Same as ls
+
+sed :
+-----
+
+   sed '1p' editing			----> 1p which tells that print the first line and show the remaining lines
+   sed -n '1p' editing			----> It prints only the first line and dont show the other lines
+   sed -n '2,4p' editing		----> The above command is used to print a certain range of lines
+   sed -n '$p' editing 			----> The above command displays only the last line
+   sed '1d' editing			----> The above command used to delete only the fisrt line
+   sed '2,4d' editing 			----> The above command is used to delete a range of lines
+   sed -n 's/hi/changes/p' editing	----> The above command search for hi and replace to changed and don't print the remaining lines
+   sed '1,4s/are/is/' editing		----> The above command used to do search and replace only for a range of lines.
+   cat new_file | sed -e '/^$/d'	----> It search for empty line and delete it
+   sed -i '2d' new_file 		----> This above command will delete the line number 2 permanently from new_file
+   sed '=' editing 			----> Command '=' symbol is used to assign number for each lines
+   sed 's/ //g' remove			----> Remove all single space
+   sed 's/\t//g' filename	        ----> Remove all tab space 	
+   sed '/^$/d'   filename		----> Remove all empty lines in the file
+
+grep :
+------
+
+   cat new.txt | grep -n 'linux'	----> result comes with the line number where the matches are found.
+   cat new.txt | grep -v 'linux' 	----> -v option will reverse the search pattern. It will search except linux
+   cat new.txt | grep -c 'linux'        ----> It will find the number of matches and count the matches like [wc -l].
+   cat new.txt | grep -w 'linux'        ----> It will grep only the exact word. like [/< />]
+   cat new.txt | grep -R 'linux'	----> Recrusively search through out the folders and files
+   cat new.txt | grep -r 'linux'	----> Recrusively search through out the folders and files
+   cat new.txt | grep -i 'linux'        ----> Ignore k-sensitive while searching for a matches.
+   cat new.txt | grep -y 'linux'	----> Ignore k-sensitive while searching for a matches.	
+   cat new.txt | grep -o 'linux'	----> Prints the particular word even if the matched word contains some other letters
+   cat new.txt | grep -A(n) 'linux'	----> Prints the matches and +(n) number of lines after the pattern matches
+   cat new.txt | grep -B(n) 'linux'	----> Prints the matches and +(n) number of lines before the pattern matches
+   grep -V				----> Tells the version of the grep 
+   grep 'awk\|welcom' blog		----> Grep two words
+   grep -E 'awk|welcom' blog		----> Grep two words
+   egrep  'awk|welcom' blog 		----> Grep two words
+   grep -e'awk' -e 'welcom' blog	----> Grep two words
+
+
+chkconfig: (Centos/RedHat)
+--------------------------
+
+	chkconfig --list			----> TO list all chkconfig list
+	chkconfig --list | grep ssh		----> TO view particular chkconfig service
+	chkconfig --level 35 nfs on		----> Turn on nfs service for runlevel 3 and 5
+	chkconfig --add iptables		----> Add a service to chkconfig
+	chkconfig --del iptables		----> Delete a service fron chkconfig
+
+find:
+-----
+
+     find . -name hi	----> find the file hi through out the current folder recursively.
+     find . -iname hi	----> find file hi with k-sensitively recursively through out the folder.
+
+     find / -maxdepth 3 -name passwd	----> Do Search up to depth of 0-3 (eg:) /usr/bin/passwd
+     find / -mindepth 1 -name passwd	----> Start do search from the depth of 1 /etc/passwd
+
+
+     find . -inum 6318220		----> find the file name using inode number.
+     find . -inum 6318220 -exec mv {} hello \;--->find file based inode number and execute command 
+
+     find . -empty			----> FInd all empty files recursively
+
+     find . -perm 444			----> find file with permission 444
+     find . -perm u=rw,g=rx,o=rx	----> find file with permission of 655
+     find . -perm 444 -exec ls -l {} \;	----> find file with permission 444 and execute command
+     find . -perm u=r,g=r,o=r -exec ls -l {} \;	----> find file with permission 444 
+
+     find . -type f 			----> find file with type file
+     find . -type d 			----> find file with type directory
+     find . -type s			----> find file with type scoket
+     find . -type f -name ".*"		----> Find all the hidden files
+     find . -type d -name ".*"
+     find . -type d -empty		----> find file with type directory and it should be empty
+     find . -type f -empty		----> find file with type normalfile and it should be empty
+
+
+     find . -size +1k			----> find file based on size greater than 1kb
+     find . -size -1k			----> find file based on size lesser than 1kb
+
+     find . -amin -60			----> find all accessed file in last 60 mins
+     find . -mmin -60			----> find all modified file in last 60 mins
+	
+     find . -atime +1			----> find all accessed file ago(before of) 1 day
+     find . -atime -1			----> find all accessed file from last 1 day
+     find . -mtime +1			----> find all modified file ago(before of) 1 day
+     find . -mtime -1			----> find all modified file from last 1 day
+
+HISTORY:
+-------
+
+	up arrow			----> Repeat previous command 
+	Type !!				----> Repeat previous command 
+	Type !-1			----> Repeat previous command 
+	Press Control+P			----> Repeat previous command 
+	!18				----> Repeat command number 18
+	!ps				----> Repeat the very last ps command u have entered
+	ctrl+r				----> It will do a reverse search,  max 4 words allowed
+	HISTTIMEFORMAT="%h-%d %H:%M  "  ----> h- month name, d-day of month, H- hour (00..23), M-minute (00..59)
+	HISTSIZE=450			----> To change the history size
+	HISTFILESIZE=450		----> To change the history file size
+	HISTFILE=/home/rajm/.bash_history---> TO change history file
+	HISTCONTROL=ignoredups		----> To eliminate duplicate (or) repeated commands, commands entering hereafter.
+	HISTCONTROL=erasedups		----> To eliminate duplicates accross whole history
+	history -c			----> Clear total history
+	HISTIGNORE=”pwd:ls:ls –ltr:”	----> Ignore some specific commands from historycommands entering after this commands
+	set +o history			----> History entry is temporarly stopped
+	set -o history			----> to start again
+
+rpm: (RPM package Manager used in CentOS and RedHat)
+----------------------------------------------------
+
+-i | --install, 
+-V | --verify, 
+-q | --query, 
+-a | --all,
+-i | --info, 
+-l | --list, 
+-f | --file FILE,
+-p | --package PACKAGE_FILE
+-e | --erase
+
+	rpm -ivh pure-ftpd-1.1.0-1.i386.rpm      ---> Install the package
+	rpm -e pure-ftpd-1.1.0-1	----> Erase the installed package
+	rpm -qa				----> List all installed packages
+	rpm -qi				----> You can display more information about package
+	rpm -ql iptables		----> You can list package file , List files in package 
+	rpm -qf /etc/httpd		----> It will display the package name httpd-2.2.3-6.el5
+	rpm -qpl xclip-0.10-2.el5.x86_64.rpm	---> Displays where the files will sit in you system even if the package is 							     not installed in the system.
+	rpm -qfc pure-ftpd-1.1.0-1	----> Find out what configuration files present in the package.
+	rpm -qR httpd-2.2.3-11.el5	----> List the supporting package.
+
+tar:
+----
+-C, --directory DIR, -x --extract, -f, --file, -v, --verbose, -z, --gzip --gunzip, -j, --bzip2, t --list, -Z, --compress, 
+
+	Syntax: tar <option> <destination.type> <source>
+
+	tar -cvf  named.tar named	----> Command to create normal tar file
+	tar -czvf named.gz named	----> Command to create gun zip archive
+	tar -cjvf named.bz named	----> Command to create bun zip archive
+
+	tar -xvf named.tar named	----> Extract normal tar file
+	tar -xzvf named.gz named	----> Extract gun zip tar archive
+	tar -xjvf named.bz named	----> Extract bun zip tar archive
+
+	tar -tvf httpd-2.2.21.tar	----> To view files inside the tar file
+	lz ossec-hids-2.5.1.tar.gz	----> It can be only used to tar.gz tar file
+	less file.tar			----> To list files in tar & tar.gz(as ls -l)
+	zcat file.tar.gz		----> To view content of a compressed file
+
+zip:
+----
+
+	Syntax:	zip  <options> <destinationfilename.zip> <sourcefilename>
+	
+	zip hello.zip hello			-----> To zip a single file
+	zip abcd.zip a.txt b.txt c.txt d.txt	-----> To zip 4 individual files
+	zip -r testfolder.zip testfolder	-----> To zip an entire directory
+	zip -e hi.zip hi.txt			-----> To assign password for zip file
+	zip -9 name.zip /var/www/*		-----> Level 9 is max compression (there is level 0 - 10)
+	zip -9 -r public_html1.zip public_html1	-----> Zip entire folder with full compression.
+	zipinfo My.zip     			-----> to find out what are the files present in the a zip file
+	zipcloak My.zip   			-----> to encrypt and set password for the zip file.			
+
+cat :
+-----
+
+	cat    file.txt				-----> To view content of the file
+	cat -n file.txt				-----> To view content of file with line number 
+	cat -b file.txt				-----> To view content of file with line number and exclude blank space
+	cat -A file.txt				-----> -A equl to -vET, E put an $ at end, T put an ^I at end, 
+
+mkdir:
+-----
+	mkdir -m 644 hello		-----> Command used to create a directory hello and set the permission 644
+	mkdir -p a/b/c/d		-----> Command used to create directory recursively (folder d inside c and b and a)
+	mkdir -v hi			-----> Command will create a directory hi and display message (folder created
+
+rmdir:
+------
+	rmdir hello			-----> Command used to delete empty folder (in here hello is folder)
+
+rm :
+----
+	rm hello			-----> Command used to delete a file/folder.
+	rm -r hello			-----> Command used to delete a folder recursively
+	rm -rf hello			-----> Command used to delete forcely
+	rm -i hello			-----> Command used to interact whether to delete or not
+	rm -v hello 			-----> Command will remove file hello and displays a message
+
+who :
+-----
+	who				-----> Displays which user is currently logged in and from which IP address.
+	who -a				-----> Displays all values provided by who.
+	who -b				-----> Displays exact last reboot of system
+	who -r				-----> Displays current runlevel the system is in now
+	who -q 				-----> count all login names and number of users logged on
+	who -H				-----> Prints with heading
+	who -m	 			-----> Currently logged in psedo termina and user logged in same
+
+
+expr :
+------
+Note:Use man expr for more details
+
+	expr 5 + 6 			-----> To add and display the o/p	
+	expr 5 - 3			-----> To delete and display the o/p
+	expr 25 % 3			-----> TO do modulo
+
+bc:
+---
+
+	echo 6000-5816 | bc		-----> To subract using command bc
+	echo 6000+5000 | bc		-----> To add using bc command
+	c=15 ; d=25 ; echo $c+$d | bc	-----> Using bc command we can add variables also
+	echo 5*5 | bc			-----> Command to multiply
+	echo 5/5 | bc			-----> Command to divide
+	echo 48%5 | bc			-----> Command to modulo
+
+
+Kill :
+------
+-9(KILL) this signal may not be blocked, 15(TERM) this kills all the process running by it.
+	
+	skill -KILL /pts/20		   -----> To terminate a terminal
+	skill -9    /pts/20		   -----> To terminate a terminal
+	kill -9  2050			   -----> To kill a process
+	kill -15 2050			   -----> TO kill pid 2050 and all process associated with the pid 2050	
+
+diff:
+-----
+
+	diff    a.txt b.txt		   -----> display the difference of two files
+	diff -i a.txt b.txt		   -----> Ignore k-sensitive
+	diff -a a b		   	   -----> Treat files as text file
+	
+tree:
+-----
+
+	tree			-----> Command used to show the Content of directory in tree like format.
+				       It also displays number of available directory and files.
+	tree -a			-----> Even it shows the hidden file using -a option
+	tree -d			-----> Displays the number of directories available in tree format.
+	tree -p			-----> Displays the permission of the file's and folders
+	tree -u			-----> Displays the username or uid of the file
+	tree -g 		-----> Displays the groupname or gid of the file
+
+cut :
+-----
+-c --> Select in character, -b --> Select in bytes, -f --> To select the field, -d --> Deliminator used to field select, By default TAB is the deleminator.
+
+	cat /etc/passwd | tail -1 | cut -c 6	 -----> Command to cut the exact 6th letter from the line
+	cat /etc/passwd | tail -1 | cut -c 3,4,5 -----> Command to cut the 3rd,4th and 5th letter from the line
+	cat /etc/passwd | tail -1 | cut -c 3-9   -----> Command to cut letter from 3rd to 9th letter from the line
+	cat /etc/passwd | tail -1 | cut -b 6	 -----> Command to cut the exact 6th letter from the line
+	cat /etc/passwd | tail -1 | cut -b 3,4,5 -----> Command to cut the 3rd,4th and 5th letter from the line
+	cat /etc/passwd | tail -1 | cut -b 3-9   -----> Command to cut letter from 3rd to 9th letter from the line
+	cat /etc/passwd | cut -d':' -f1		 -----> Cut the field 1 with deliminator ':'.Default deleminator is 'TAB'
+	cat /etc/passwd | cut -d":" -f2,6	 -----> Cut the field 2 and 6 with deliminator ":".Default delimin is "TAB"
+	cat /etc/passwd | cut -d":" -f1,5	 -----> Cut the field range from "1 to 6".
+
+sort :
+------
+-r --> Reverse sort(decending order), -n --> Numeric sort, -m --> merge already sorted file, -o --> Redirect o/p to some other file, -t --> Deliminator (Like cut -d:), -k --> Field seperator (Like cut -f1)
+	
+	cat /etc/passwd | sort 		----->  Command to arrange the file in ascending order(i.e) from a-z
+	cat /etc/passwd | sort 	-r 	----->  Command to reverse the sort
+	cat /etc/passwd | sort  -n 	----->  To do numerical sort
+	cat /etc/passwd | sort  -nr 	----->  To do numerical sort and reverse the o/p
+	cat /etc/passwd | sort -n -o hi ----->  Do numerical to sort the file /etc/passwd and send the result to hi file
+	sort -m a.txt b.txt 		----->  Sort the file a.txt,b.txt. Then merge the both file 
+	sort  -t: -k 3 /etc/passwd	----->  sort the passwd file field 3 with deliminator ":"
+
+
+Monitoring Commands:
+--------------------
+
+top :
+-----
+
+
+nmap :
+------
+
+--version (or) -V --> Version, -v  --> Verbose, -A: Enables OS detection and Version detection, -O  --> OS detection, 
+-p  --> used to specify port, -f (or) -F --> scan all ports in file /etc/services with Fast, -T[0-5]: Set timing (higher is faster)
+ref :	http://nmap.org/book/man.html
+	man nmap
+
+	nmap --version			-----> Command used to show the version of the nmap
+	nmap -V				-----> Command used to show the version of the nmap
+	namp -v 			-----> Show the scanning in verbose mode with out this option no process is visible
+	nmap -v 125.17.173.14		-----> IP based sacnning
+	nmap -v 125.17.173.14 125.17.173.13	-----> Multiple IP can also be used.
+	nmap -v 123peppy.com 			-----> Can also be used in domain based
+	nmap -v 123bee.com 125.17.173.13	-----> Both domain and IP can also used in single command
+	nmap -v -A 123peppy.com		-----> Enables OS detection and Version detection. Displays even 						       Dns, MX record details, Available domains, Version of open protocols
+	nmap -v -O 123peppy.com		-----> Used to determine the OS. OS dectection
+	nmap -v -O -A 123peppy.com	-----> Used to determine the OS detection and Version detection.
+	nmap -v -A -p 80 125.17.173.14	-----> Used to scan by port based
+	nmap -v -A -p 21,25 125.17.173.14	-----> Multiport scaning			
+	nmap -v -A -p 1-65535 125.17.173.14	-----> Multiport scaning with a certain range.
+	nmap -v -A -f 125.17.173.14		-----> Scan 
+	nmap -v -A  -T4 123peppy.com		-----> scan port in milli seconds, -T Set timing template (higher is faster)
+
+
+ps :
+----
+-a select all process and except session leader and ps not associated with a terminal, -x displays process not associated with a terminal(like demon process), -e and -A Select all process,  -u all user currently logged in,
+
+
+###All the below three gives same output
+	ps -e
+	ps -A
+	ps -aux
+
+###User defined ps command
+	ps -o pid,comm,ni,user,ni,cpu 		----> Defined by user
+	ps -o pid,comm,ni,user,ni,cpu 2644	----> process id of mysql
+	ps -A -o pid,comm,ni,user,ni,cpu	----> Defined by user
+
+
+
+Network Commands:
+-----------------
+
+1.traceroute:
+-----------
+traceroute  tracks  the route packets take across an IP network on their way to a given host. 
+The Maximum ttl for traceroute command is 30
+	traceroute <domainname>
+	traceroute <IPaddress>
+	traceroute google.com			-----> Using this command we can ttl to the domain name.
+	traceroute 74.125.236.52
+	traceroute -m 5 google.com		-----> Specifies the max ttl value. default 30
+	traceroute -f 5 google.com		-----> Starts from which ttl. default 1
+
+2.host:
+----- 
+      host - DNS lookup utility
+It is simple utility for permorming dns lookup. It is normally used to convert Domain names to IP address and IP addresses domain name.
+
+server is an optional argument which is either the name or IP address of the name server that
+host should query instead of the server or servers listed in /etc/resolv.conf.
+
+host google.com
+host 74.125.236.50
+host yahoo.com 8.8.8.8	-----> 8.8.8.8(open dns of google), in this case it act as an nameserver
+
+3.dig:
+----
+       dig - DNS lookup utility
+dig (domain information groper) . It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried.
+
+dig soa google.com		-----> It will display only the "Start of Authority" records.
+dig server.rajkumar.com		-----> It will look for a forward lookup (name to IP)
+dig -x 192.168.1.175		-----> It will loog for a reverse lookup (IP to name)
+
+dig google.com
+...
+..
+;; QUESTION SECTION:
+;google.com.                    IN      A
+
+;; ANSWER SECTION:
+google.com.             300     IN      A       74.125.236.80
+google.com.             300     IN      A       74.125.236.81
+
+;; AUTHORITY SECTION:
+google.com.             168269  IN      NS      ns1.google.com.
+google.com.             168269  IN      NS      ns2.google.com.
+..
+..
+
+4.nslookup  :
+-----------
+       nslookup - query Internet name servers interactively
+nslookup yahoo.com
+Server:         192.168.1.8		-----> Your IP address
+Address:        192.168.1.8#53
+
+Non-authoritative answer:
+Name:   yahoo.com
+Address: 67.195.160.76
+
+nslookup 192.168.1.175			-----> Reverse lookup
+
+5.ping  :
+-------
+	ping - Packet Internet Gopher
+
+ping - send ICMP ECHO_REQUEST to network hosts
+
+	ping -c 5 google.com	-----> send 5 ECHO REQUEST ping waits for count ECHO_REPLY packets, until the timeout expires
+	ping -i 3 google.com	-----> "i" tells interval, send's echo request every sec, default 1 sec.
+	ping -t 7 google.com 	-----> "-t" ttl Set the IP Time to Live, traceroute google.com(to find ttl Value)
+
+
+6.netstat  :
+----------
+
+netstat  -  Print  network connections, routing tables, interface statistics, masquerade connections, and  multicast memberships
+
+	netstat -s		----> Display summary statistics for each protocol
+	netstat -r		----> prints the routing table
+	netstat -i		----> Display a table of all network interfaces
+	netstat -M		----> Display a list of masqueraded connections.
+	netstat -g		----> Display multicast group membership information for IPv4 and IPv6.
+	netstat -V 		----> Displays the version of the netstat command.
+	netstat -v 		----> Tell the user what is going on by being verbose.
+	netstat -a		----> Show both listening and non-listening sockets.
+	netstat -p		----> Show the PID and name of the program to which each socket belongs.
+	netstat -t		----> Display only TCP port
+	netstat -u		----> Display only udp port
+	netstat -n		----> Show numerical addresses instead of trying to determine symbolic host,port orusernames.
+        netstat -tulnap | awk '{print$7}' | sed -n -e '/[/]/p' | cut -s -d'/' -f2 | sort | uniq -c | sort -nk 1 -------to check all service using how many connections
+
+7.route :
+---------
+
+       route - show / manipulate the IP routing table
+
+	del    			----> delete a route.
+	add    			----> add a new route.
+	-host                   ----> the target is a host.
+	-net   			----> the target is a network.
+  	gw                      ----> route packets via a gateway.  NOTE: The specified gateway must be reachable first.
+	route -r 		----> Displays the routing table of linux machine
+	dev			----> Which mention the devices.	
+
+TO add a static route to a host:
+---------------------------------
+route add -host 192.168.1.175 gw 192.168.1.1 dev eth0
+	
+To delete a static route to a host:
+------------------------------------
+route del -host 192.168.1.175 gw 192.168.1.1 dev eth0
+
+TO add a static route to a network :
+-----------------------------------
+route add -net 192.168.1.0 netamsk 255.255.255.0 gw 192.168.1.1 dev eth0
+
+TO delete a static route to a network :
+---------------------------------------
+route delete -net 192.168.1.0 netamsk 255.255.255.0 gw 192.168.1.1 dev eth0
+
+8.lsof :
+---------
+
+    lsof  -- list open files
+
+    lsof -i        		----> Show All Opened Internet Sockets
+    lsof -i tcp    		----> Show all TCP connections
+    lsof -i udp    		----> Show all UDP connections
+    lsof /bin/vim    		----> displays the users who all are using vim command
+    lsof +D /tmp    		----> Tells who all are using the folder /tmp
+    lsof /dev/sda5    		----> Displays who and what are the files using in /dev/sda5 partition
+    lsof +p 2665    		----> List open files associated with process ID
+    lsof -c vmstat    		----> listing of files for processes executing the command
+    lsof -c a    		----> listing of files for processes executing the command that begins with
+                          	      the characters of c.
+    lsof -u rajm    		----> Shows all files opend by the user rajm.
+
+9.tcpdump :
+-----------
+http://danielmiessler.com/study/tcpdump/
+	       tcpdump - dump traffic on a network. tcpdump command is also called as packet analyzer.
+
+     tcpdump			-----> Capture all packets flowing through all the interface.
+     tcpdump -i eth0		-----> Capture packets from a particular ethernet interface using tcpdump -i
+     tcpdump -c 2 -i eth0	-----> Capture only N number of packets using tcpdump -c
+     tcpdump -A -i eth0		-----> Display Captured Packets in ASCII using tcpdump -A
+     tcpdump -XX -i eth0	-----> Display Captured Packets in HEX and ASCII using tcpdump -XX
+     tcpdump -w data.pcap -i eth0 -> Capture the packets and write into a file using tcpdump -w.The file extension 						 should be .pcap, which can be read by any network protocol analyzer. 
+     tcpdump -r data.pcap       -----> Reading the packets from a saved file using tcpdump -r. -tttt Print a timestamp in 			                       default format proceeded by date on each dump line.
+     tcpdump -n -i eth0		-----> Capture packets with IP address using tcpdump -n
+     tcpdump -n -tttt -i eth0	-----> Capture packets with proper readable timestamp using tcpdump -tttt
+
+10.last & lastb :
+------------------
+
+/var/run/utmp			-----> File contains details of which user is currently logged in.
+/var/log/wtmp			-----> File contains details of which user is currently logged in and successfuly logged in.
+/var/log/btmp			-----> File contains details of wrongly logged in(failed-login) user.
+
+		last uses /var/log/wtmp file.
+		lastb uses /var/log/btmp file. btmp stores only direct login failure system and not ssh or remote failure.
+
+     last 			-----> Display which user is currently logged in and successfuly logged in
+     lastb			-----> Display details of wrongly logged in(failed-login) user.
+     last reboot		-----> Displays the date & time of system rebooted.
+
+
+
+
+
+
+
+Built-In-Commands :
+-------------------
+==========================================================================================================================
+======Keyboard Shortcuts======
+esc  +b     -  Move cursor one word backword.
+esc  +f     -  Move cursor one word forward.
+ctrl +a     -  Move cursor to the starting of the line
+ctrl +b     -  Move cursor one letter backword.
+ctrl +c	    -  Terminate foreground job
+crrl +d     -  Logout
+ctrl +e     -  Move cursor to the end of the line.
+ctrl +f     -  Move cursor forward
+ctrl +h	    -  Delete one letter backward like backspace
+ctrl +u     -  Delete contents from where the pointer to left side end.
+ctrl +k	    -  Delete contents from where the pointer to Right side end. 
+crtl +w     -  Delete one word from where the pointer to one word on left side.
+ctrl +f     -  Move cursor one letter forward.
+ctrl +p     -  Previous command.
+ctrl +n     -  Next command.
+ctrl +l     -  Clear the screen.
+ctrl +j	    -  its same like an ENTER
+ctl  +Y	    -  Pastes back text previously erased (with Ctl-U or Ctl-W).
+
+============================================================================================
+=====Port Numbers=====
+http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml
+http	   -  80   (tcp/udp)
+https	   -  443  (tcp/udp)
+ftp	   -  20   (tcp/udp)
+ftp	   -  21   (tcp/udp)
+ssh	   -  22   (tcp/udp)
+telnet	   -  23   (tcp/udp)
+DNS	   -  53   (udp)
+nfs	   -  2049 (tcp/udp)
+mysql	   -  3306 (tcp/udp)
+smtp	   -  25   (tcp/udp)
+smtps 	   -  465  (tcp)
+pop3	   -  110  (tcp/udp)
+pop3s	   -  995  (tcp/udp)
+imap	   -  143  (tcp/udp)
+imaps      -  993  (tcp/udp)
+ldap	   -  389  (tcp/udp)
+dhcp 	   -  67   (Client)
+dhcp	   -  68   (Server)
+portmap	   -  111  (tcp/udp)
+SWAT	   -  901  (tcp)
+
+=============================================================================================
+============Commands for Formating and Partitioning Hard Disk in linux===================
+
+1. fdisk -l | grep '^Disk'  -----> See what are the Disk avaliable
+2. fdisk /dev/sdb           -----> Select the particular Disk to do Partiton
+3.  m - print help ,p - print the partition table,n - create a new partition,d - delete partition,  q - quit without saving changes, w - write the new partition table and exit
+4.  n ---> New Partition
+5.  press e for extended (or) p for primary partition
+6.  press p(primary)  then enter
+7.  1 then +50G (Size of the partition)
+8.  n(new) and then e(extended) press enter and enter
+9.  partprobe
+10. mkfs.ext3 /dev/sdb1
+11. mkdir /Disk2
+12. mount /dev/sdb1 /Disk2
+13. vim /etc/fstab then 
+    /dev/sdb1               /Disk2                  ext3    defailts        0 0
+14. mount -a
+
+===========================================================================================================================
+=====Convert ext2 to ext3==============
+
+Log in as root
+
+Make sure /etc/fstab has /dev/hda10 mounted to /test as ext2, read write
+
+umount /dev/hda10
+          o If you can't unmount it, then remount it read only (mount -o remount,ro /dev/hda10)
+
+tune2fs -j /dev/hda10
+
+Edit /etc/fstab, and for /dev/hda10, change ext2 to ext3
+
+mount /dev/hda10
+
+/sbin/shutdown -h now
+
+mount | grep /dev/hda10
+          o If it's not shown as ext3, reboot, if still not, troubleshoot
+          o Otherwise, you're done.
+========================================================================================================================
+============================================================================================================================
+===========How to mount a CDROM linux==============
+
+#mount /dev/cdrom /mnt
+#cd mnt
+#ls -l
+
+================================================================================================
+=====How to forcely unmount disk partition=====
+http://www.cyberciti.biz/tips/how-do-i-forcefully-unmount-a-disk-partition.html
+
+Type the command to unmount /mnt forcefully:
+fuser -km /mnt
+   -k : Kill processes accessing the file.
+   -m : Name specifies a file on a mounted file system or a block device that is mounted. In above example you are using /mnt
+
+umount -l /mnt
+
+============================================================================================
+=====4 Ways to Identify Who is Logged-In on Your Linux System=========
+w
+who
+last
+whoami
+
+
+
+=========================================================================================================================
+==========How to check ram memory in Linux==========
+cat /proc/meminfo
+free -b					-----> command to display in bytes
+free   (or) free -k			-----> command to display in kilobytes
+free -m					-----> command to display in megabytes
+free -g					-----> command to display in gigabytes
+top
+vmstat
+vmstat -s
+========================================================================================================================
+=======Commands to verify Syntax of configuration file==========
+vsftpd					-----> To Check syntax of file /etc/vsftpd/vsftpd.conf 
+httpd -t				-----> TO Check syntax of file /etc/httpd/conf/httpd.conf 
+testparm -s				-----> To Check Syntax of file /etc/samba/smb.conf
+named-checkconf named.conf		-----> To check syntax of file /var/named/chroot/etcnamed.conf
+named-check domain named.conf		-----> To check syntax of file /var/named/chroot/var/named/gala.for
+/usr/sbin/sshd -t					-----> ssh configuration(NOt sure)
+========================================================================================================================
+
+=====Runlevel=====
+The Configuration File for runlevel is /etc/inittab .
+
+#runlevel			-----> Press enter to find out which runlevel u in now.
+
+vim /etc/inittab
+id:5:initdefault:		-----> This line specifies the default runlevel
+
+The runlevel ranges from
+0 - halt (Do NOT set initdefault to this)
+1 - Single user mode
+2 - Multiuser, No network service and no NFS (remaining same as like of runlevel 3)
+3 - Multiuser mode with text mode. No GUI
+4 - Not Used
+5 - Multiuser mode with GUI
+6 - reboot (Do NOT set initdefault to this)
+
+init 1			-----> To boot in runlevel 1
+init 3			-----> To boot in runlevel 3
+init 5			-----> To boot in runlevel 5
+
+
+
+===================================================================================================
+=========Commands for Coping Files or Folders=========================
+
+cp:
+Copy files and Directory with in local system.
+
+Syntax:
+#cp options source destination
+
+options:
+
+a - Archive same as [ R , p ,d ]  , [Its enough to copy entire folder of file even with out changing file permission]
+
+R , r - Recursive [Copy entire directive]
+
+p -  Preserves permissions(644), Preserves timestamp(Date and time of creation), Preserves owner and group(raj:rajm)
+     Preserves means unaltered
+
+d - dont follow symbolic link
+
+v - verbose, Explain what happen in view
+
+e.g:
+#cp -a /etc/squid ~/Desktop
+
+============================================================================================================================
+commands User Administrator:
+-----------------------------
+
+useradd -D			-----> Command to view default options while adding user
+useradd rajkumar		-----> Command to add a user
+useradd -d /change/new	ram	-----> Command to add user ram and place his home directory in /change/new
+useradd -G netaxis,linux funny	-----> Command to add user funny to group netaxis and linux.
+useradd -p xxxx raju		-----> Command to add passwd at adding a user but the passwd must be encrypted. 
+useradd -u 555 -g linux(or GID)  -c Teamlead -d /teamleads/john -s /bin/ksh john -----> Command to add a user john and 												change his UID, default group, 												Comment, home directory, 												shell  as you wish
+=====How to add a user to different folder=====
+useradd -d /home/hi/hello  hello
+================================================
+
+#cat /etc/passwd | grep john
+john:x:555:504:Teamlead:/teamleads/john:/bin/ksh
+
+usermod -l newjohn john		-----> Command to change users login name, home directory name wont change.
+usermod -L john			-----> Command to lock a user
+usermod -U john			-----> Command to unlock a user
+usermod -u 666 john
+usermod -g sales(or GID) john
+usermod -c lead john
+usermod -s /bin/bash john
+
+
+#cat /etc/passwd | grep john
+john:x:666:506:lead:/teamleads/john:/bin/bash
+
+
+userdel rajkumar		-----> Command to delete a user (user's home directory won't be deleted)
+userdel -rf rajkumar		-----> Command to delete user account and its home directory
+userdel -h 			-----> Command to display help message
+
+
+
+passwd -d rajkumar		-----> Command to delete password of user rajkumar
+passwd -l rajkumar		-----> Command to lock the passwd of user rajkumar
+passwd -u rajkumar		-----> Command to unlock the passwd of user rajkumar
+passwd -S rajkumar		-----> Command displays short information about the status of the password
+
+
+
+usermod -s /bin/csh rajm	-----> Command used to change shell for user rajm	
+chsh -s /bin/bash rajm		-----> Command used to change shell for user rajm	
+chage -d 0 rajumar		-----> Command used to Force Users To Change Their Passwords Upon First Login
+
+
+
+groupadd serveradmin		-----> Command to add a group.
+groupdel serveradmin		-----> Command to delete a group.
+groupmod -g 590 serveradmin	-----> Command to change the group ID of group serveradmin.
+gpasswd serveradmin		-----> Command used to set password for the group serveradmin
+
+
+The password details for the serveradmin group is stored in /etc/gshadow file in encrypted format.
+#cat /etc/gshadow | grep server
+linuxserveradmin:s10aTmED7rh5I::
+
+
+usermod -G netaxis john		------> Command to add user john to group netaxis
+usermod -G linux john 		------> Command will add user john to group linux but it will remove him from netaxis 						(overwrittted)
+usermod -a -G serveradmin,netaxis john ----> Command will append the group serveradmin,netaxis to user john not overwritted.
+
+
+

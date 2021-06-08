@@ -1,0 +1,38 @@
+
+
+NOTE : This time alone please clone the directory again
+
+STEP-1: To clone the repository
+--------------------------------
+# git clone <Repoistory_HTTP_URL>
+
+STEP-2: Create branch and checkout into the created branch
+-----------------------------------------------------------
+# git branch <BRANCH_NAME> --> ( Create a branch)
+# git checkout <BRANCH_NAME> --> (switch into branch) 
+
+NOTE: STEP-1, STEP-2 and STEP-3 are one time process. no need to everytime
+
+STEP-3: Fetching and Merging
+-----------------------------
+	Before you make your change in you local repo, first you have to pull the latest commits from Master Source into your local (We always should work on the latest source code).
+
+# git pull origin master
+
+STEP-4: Develop and Push the code
+---------------------------------
+	Make your changes in your local repository and push it into the master source through MergeRequest. (Example : adding a file, edit existing files)
+
+# git add .
+# git commit -m “COMMIT_MESSAGE”
+# git push origin <BRANCH_NAME>:<BRANCH_NAME>
+
+After executing the above push command, you will see remote URL. Copy that remote URL and paste it on the browser. Then you will get a merge request creation page
+
+In the above figure,  choose assign and Kindly untick the “Delete source branch when merge request is accepted” 
+ Finally, click “Submit Merge Request”  
+Note: if you have an write access in this repository then please merge it.
+After MergeRequest approved please go to the “Repository Home page” you will find the files in the repository.
+
+
+

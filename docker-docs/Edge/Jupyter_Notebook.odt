@@ -1,0 +1,44 @@
+####
+
+Note: Edit the below code in config file.
+
+c.NotebookApp.token = ''
+c.NotebookApp.password = u''
+c.NotebookApp.open_browser = True
+c.NotebookApp.ip = 'localhost'
+
+
+####
+
+jupyter notebook --ip xx.xx.xx.xx --port 8888
+
+####
+
+
+Note : Only if the config file is not available:
+	jupyter notebook --generate-config
+
+gedit  /home/hduser/.jupyter/jupyter_notebook_config.py
+
+####
+
+Note: set a  new password
+
+jupyter notebook password
+
+####
+
+Note : Run a jupyter notebook with out the browser
+
+jupyter notebook --no-browser
+
+####
+
+http://SOLVERLAPT210:8888
+
+
+
+####
+
+
+

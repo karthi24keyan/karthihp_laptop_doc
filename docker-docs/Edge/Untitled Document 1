@@ -1,0 +1,21 @@
+183.82.214.216
+
+
+
+1. The purpose of this two commands is identification for git
+
+git config commands
+
+
+
+Dear sir,
+
+Now the Docs folder have pushed to git space (Edge_documentation). 
+
+Earlier error happened because another .git directory (pointed https://github.com/AnthonyDamian/docs.git) placed inside the docs directory. so i just removed .git directory. now you can pull and push.
+
+Please find the attached new document
+
+
+
+

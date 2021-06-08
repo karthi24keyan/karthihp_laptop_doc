@@ -1,0 +1,27 @@
+
+
+
+Please take the user_ID of email that you want to delete
+
+select username,email,user_id from stats_extendeduser;
+
+131 - striveforexcellence.ai@gmail.com
+132 - striveforexcellence.ai@yahoo.com 
+
+
+
+select username,email from auth_user;
+
+
+delete from auth_user where email='yet_to_active-striveforexcellence.ai@gmail.com';
+
+delete from auth_user_groups where user_id='131';
+delete from auth_user_user_permissions where user_id='131';
+
+delete from stats_extendeduser where user_id='131';
+
+delete from auth_user where email='yet_to_active-striveforexcellence.ai@gmail.com';
+
+
+
+

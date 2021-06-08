@@ -1,0 +1,14 @@
+First we have to create IAM policy by using JSON Editor - Created Policy in IAM
+
+Create the RUle for policy - Roles Created in the IAM and also attached the created policy in role
+
+Create Lambda FUnction - Created Lambda Function for Auto Start and Stop in Lambda
+
+SHutdown cloudwatch Scheduler
+30 15 ? * 6 *
+
+STart cloudwatch Scheduler
+30 22 ? * 1 *
+
+
+
